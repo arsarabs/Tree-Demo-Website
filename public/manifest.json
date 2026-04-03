@@ -1,10 +1,10 @@
 {
-  "name": "Summit Tree Co.",
-  "short_name": "Summit Tree",
+  "name": "Highland Tree Service",
+  "short_name": "Highland Tree",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FAFAF7",
-  "theme_color": "#1B6B3A",
+  "background_color": "#F8FAFB",
+  "theme_color": "#1A5C4B",
   "icons": [
     { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
   ]

@@ -79,13 +79,13 @@ export default function AboutClient() {
 
           {/* ── Our Story ── */}
           <section className="mb-20 lg:mb-28">
-            <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+            <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
               Our Story
             </p>
-            <h2 className="font-clash font-bold text-3xl sm:text-4xl lg:text-5xl text-stone tracking-tight mb-8">
+            <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-stone tracking-tight mb-8">
               Started With One Truck
             </h2>
-            <div className="space-y-6 font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed max-w-3xl">
+            <div className="space-y-6 font-sans text-stone-dim text-base sm:text-lg leading-relaxed max-w-3xl">
               <p>
                 {biz.isDemo ? founderName : "Derek"} spent over a decade climbing trees for someone
                 else&apos;s company. In 2011, after a rough windstorm ripped through the Ygnacio Valley
@@ -118,13 +118,13 @@ export default function AboutClient() {
           {/* ── Our Crew ── */}
           <section className="mb-20 lg:mb-28">
             <div className="border border-black/[0.06] bg-warm-gray p-8 lg:p-12">
-              <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+              <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
                 Our Crew
               </p>
-              <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
+              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
                 In-House Team. Never Subcontracted.
               </h2>
-              <div className="space-y-5 font-satoshi text-stone-dim text-base leading-relaxed max-w-3xl">
+              <div className="space-y-5 font-sans text-stone-dim text-base leading-relaxed max-w-3xl">
                 <p>
                   Every person who shows up at your property works for {biz.name}{" "}
                   directly. We don&apos;t subcontract, we don&apos;t use day
@@ -162,11 +162,11 @@ export default function AboutClient() {
                       &#10003;
                     </span>
                   </div>
-                  <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight">
+                  <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight">
                     Licensed &amp; Insured
                   </h2>
                 </div>
-                <div className="space-y-4 font-satoshi text-stone-dim text-base leading-relaxed">
+                <div className="space-y-4 font-sans text-stone-dim text-base leading-relaxed">
                   <p>
                     We hold California Contractor License #1084732 (C-61/D-49),
                     carry $2 million in general liability insurance, and have full
@@ -186,11 +186,11 @@ export default function AboutClient() {
                       &#9830;
                     </span>
                   </div>
-                  <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight">
+                  <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight">
                     ISA Certified Arborist
                   </h2>
                 </div>
-                <div className="space-y-4 font-satoshi text-stone-dim text-base leading-relaxed">
+                <div className="space-y-4 font-sans text-stone-dim text-base leading-relaxed">
                   <p>
                     Derek is an ISA Certified Arborist with over 25 years of
                     hands-on tree care experience. He personally assesses every
@@ -216,10 +216,10 @@ export default function AboutClient() {
                 { value: `${biz.reviewCount}+`, label: "Customer Reviews" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="font-clash font-bold text-accent text-3xl sm:text-4xl mb-1">
+                  <p className="font-serif font-bold text-accent text-3xl sm:text-4xl mb-1">
                     {stat.value}
                   </p>
-                  <p className="font-satoshi text-stone-dim/50 text-xs uppercase tracking-[0.15em]">
+                  <p className="font-sans text-stone-dim/50 text-xs uppercase tracking-[0.15em]">
                     {stat.label}
                   </p>
                 </div>
@@ -228,7 +228,7 @@ export default function AboutClient() {
           </section>
 
           {/* ── Cross-links ── */}
-          <div className="mb-20 lg:mb-28 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
+          <div className="mb-20 lg:mb-28 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm">
             <Link href="/locations" className="text-accent hover:text-accent-light transition-colors">
               See all the cities we serve &rarr;
             </Link>
@@ -239,23 +239,23 @@ export default function AboutClient() {
 
           {/* ── CTA ── */}
           <section className="text-center">
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
               Ready to Take Care of Your Trees?
             </h2>
-            <p className="font-satoshi text-stone-dim text-base mb-8 max-w-xl mx-auto">
+            <p className="font-sans text-stone-dim text-base mb-8 max-w-xl mx-auto">
               We serve {LOCATIONS.length} cities across the {biz.city} metro.
               Same-day service available for calls before noon.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-block bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
+                className="inline-block bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
               >
                 Get a Free Quote
               </Link>
               <Link
                 href="/services"
-                className="inline-block border border-black/[0.1] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-accent/30 hover:text-accent transition-colors duration-300"
+                className="inline-block border border-black/[0.1] text-stone font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-accent/30 hover:text-accent transition-colors duration-300"
               >
                 View Services
               </Link>

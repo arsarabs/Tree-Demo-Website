@@ -115,24 +115,24 @@ export function LocationPageClient({ location }: { location: LocationData }) {
 
           {/* ── Description ── */}
           <div className="max-w-3xl mb-20">
-            <h2 className="font-clash font-bold text-stone text-2xl sm:text-3xl mb-6">
+            <h2 className="font-serif font-bold text-stone text-2xl sm:text-3xl mb-6">
               {biz.name} Serves {location.city}
             </h2>
-            <p className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed">
+            <p className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed">
               {location.description}
             </p>
           </div>
 
           {/* ── Neighborhoods ── */}
           <div className="mb-20">
-            <h2 className="font-clash font-bold text-stone text-xl sm:text-2xl mb-6">
+            <h2 className="font-serif font-bold text-stone text-xl sm:text-2xl mb-6">
               Neighborhoods We Serve in {location.city}
             </h2>
             <div className="flex flex-wrap gap-3">
               {location.neighborhoods.split(", ").map((hood) => (
                 <span
                   key={hood}
-                  className="font-satoshi text-stone-dim text-sm bg-black/[0.02] border border-black/[0.08] px-4 py-2"
+                  className="font-sans text-stone-dim text-sm bg-black/[0.02] border border-black/[0.08] px-4 py-2"
                 >
                   {hood}
                 </span>
@@ -142,7 +142,7 @@ export function LocationPageClient({ location }: { location: LocationData }) {
 
           {/* ── FAQs ── */}
           <div className="mb-20">
-            <h2 className="font-clash font-bold text-stone text-xl sm:text-2xl mb-8">
+            <h2 className="font-serif font-bold text-stone text-xl sm:text-2xl mb-8">
               {location.city} Tree Service FAQ
             </h2>
             <FAQAccordion faqs={location.faqs} />
@@ -150,7 +150,7 @@ export function LocationPageClient({ location }: { location: LocationData }) {
 
           {/* ── Services available ── */}
           <div className="mb-20">
-            <h2 className="font-clash font-bold text-stone text-xl sm:text-2xl mb-8">
+            <h2 className="font-serif font-bold text-stone text-xl sm:text-2xl mb-8">
               Services Available in {location.city}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -161,7 +161,7 @@ export function LocationPageClient({ location }: { location: LocationData }) {
                   className="bg-dark border border-black/[0.06] p-6 group hover:border-accent/10 transition-colors duration-500 block"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-clash font-bold text-stone text-base group-hover:text-accent transition-colors duration-300">
+                    <span className="font-serif font-bold text-stone text-base group-hover:text-accent transition-colors duration-300">
                       {service.shortName}
                     </span>
                     <svg
@@ -187,10 +187,10 @@ export function LocationPageClient({ location }: { location: LocationData }) {
 
           {/* ── Quote form ── */}
           <div className="max-w-2xl mb-20">
-            <h2 className="font-clash font-bold text-stone text-xl sm:text-2xl mb-6">
+            <h2 className="font-serif font-bold text-stone text-xl sm:text-2xl mb-6">
               Get a Free Quote in {location.city}
             </h2>
-            <p className="font-satoshi text-stone-dim text-base mb-8">
+            <p className="font-sans text-stone-dim text-base mb-8">
               Ready to get rid of your junk? Fill out the form below and
               we&apos;ll get back to you within 15 minutes during business hours.
             </p>
@@ -201,25 +201,25 @@ export function LocationPageClient({ location }: { location: LocationData }) {
           <div className="flex flex-wrap items-center gap-6 pt-10 border-t border-black/[0.06]">
             <Link
               href="/"
-              className="font-satoshi text-accent/60 text-sm hover:text-accent transition-colors duration-300"
+              className="font-sans text-accent/60 text-sm hover:text-accent transition-colors duration-300"
             >
               &larr; Back to Home
             </Link>
             <Link
               href="/locations"
-              className="font-satoshi text-accent/60 text-sm hover:text-accent transition-colors duration-300"
+              className="font-sans text-accent/60 text-sm hover:text-accent transition-colors duration-300"
             >
               All Locations
             </Link>
             <Link
               href="/about"
-              className="font-satoshi text-accent/60 text-sm hover:text-accent transition-colors duration-300"
+              className="font-sans text-accent/60 text-sm hover:text-accent transition-colors duration-300"
             >
               Learn about our team
             </Link>
             <Link
               href="/reviews"
-              className="font-satoshi text-accent/60 text-sm hover:text-accent transition-colors duration-300"
+              className="font-sans text-accent/60 text-sm hover:text-accent transition-colors duration-300"
             >
               See customer reviews
             </Link>

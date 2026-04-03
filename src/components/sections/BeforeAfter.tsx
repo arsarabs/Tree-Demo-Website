@@ -10,14 +10,14 @@ export function BeforeAfter() {
 
   return (
     <>
-      <SectionWrapper id="work" reveal="scale" className="bg-warm-gray py-14 sm:py-18 lg:py-24 px-6 lg:px-10">
+      <SectionWrapper id="work" reveal="up" className="bg-warm-gray py-14 sm:py-18 lg:py-24 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* ═══ HOOK ═══ */}
           <div className="flex items-end justify-between mb-10">
-            <h2 className="font-clash font-bold text-3xl sm:text-4xl leading-[0.9] tracking-tight text-stone">
+            <h2 className="font-serif font-bold text-3xl sm:text-4xl leading-[0.9] tracking-tight text-stone">
               Before. <span className="text-accent">After.</span>
             </h2>
-            <span className="font-satoshi text-stone-dim/60 text-xs uppercase tracking-[0.15em] hidden sm:inline">
+            <span className="font-sans text-stone-dim/60 text-xs uppercase tracking-[0.15em] hidden sm:inline">
               Tap to enlarge
             </span>
           </div>
@@ -27,7 +27,7 @@ export function BeforeAfter() {
             {BIZ.beforeAfter.map((photo, i) => (
               <div
                 key={photo.src}
-                className={`overflow-hidden border border-black/[0.10] group hover:border-accent/20 transition-colors duration-500 cursor-pointer ${
+                className={`overflow-hidden rounded-2xl border border-black/[0.10] group hover:border-accent/20 transition-colors duration-500 cursor-pointer ${
                   i === 0 ? "lg:col-span-7" : "lg:col-span-5"
                 }`}
                 onClick={() => setLightboxSrc(photo.src)}
@@ -46,15 +46,15 @@ export function BeforeAfter() {
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                   <div className="absolute top-4 left-4 flex gap-2">
                     <div className="bg-black/70 backdrop-blur-sm px-3 py-1">
-                      <span className="font-satoshi text-[10px] font-medium tracking-widest uppercase text-white/70">Before</span>
+                      <span className="font-sans text-[10px] font-medium tracking-widest uppercase text-white/70">Before</span>
                     </div>
                     <div className="bg-black/70 backdrop-blur-sm px-3 py-1">
-                      <span className="font-satoshi text-[10px] font-medium tracking-widest uppercase text-accent">After</span>
+                      <span className="font-sans text-[10px] font-medium tracking-widest uppercase text-accent">After</span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-dark/50 px-5 py-3">
-                  <p className="font-satoshi text-stone-dim/60 text-[11px] uppercase tracking-[0.15em]">
+                  <p className="font-sans text-stone-dim/60 text-[11px] uppercase tracking-[0.15em]">
                     {photo.detail}
                   </p>
                 </div>
@@ -80,7 +80,7 @@ export function BeforeAfter() {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-satoshi text-white/30 text-xs uppercase tracking-[0.15em]">
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-sans text-white/30 text-xs uppercase tracking-[0.15em]">
             Tap anywhere to close
           </p>
           <div

@@ -80,10 +80,10 @@ export default function ContactClient() {
 
           {/* ── What to Expect ── */}
           <section className="mb-16 lg:mb-20">
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
               What Happens When You Reach Out
             </h2>
-            <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
+            <div className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
               <p>
                 When you contact {biz.name}, getting your tree work done is straightforward and
                 stress-free. Here is exactly how it works. First, give us a
@@ -115,7 +115,7 @@ export default function ContactClient() {
                 </Link>.
               </p>
             </div>
-            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm">
               <Link href="/reviews" className="text-accent hover:text-accent-light transition-colors">
                 Read customer reviews &rarr;
               </Link>
@@ -128,10 +128,10 @@ export default function ContactClient() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* ── Quote Form (left / top) ── */}
             <div className="lg:col-span-3">
-              <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+              <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
                 Request a Quote
               </p>
-              <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
+              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
                 Tell Us About Your Job
               </h2>
               <QuoteForm />
@@ -141,11 +141,11 @@ export default function ContactClient() {
             <div className="lg:col-span-2 space-y-10">
               {/* NAP Block */}
               <div>
-                <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+                <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
                   Contact Info
                 </p>
-                <address className="not-italic space-y-3 font-satoshi text-stone-dim text-base">
-                  <p className="font-clash font-bold text-stone text-lg">
+                <address className="not-italic space-y-3 font-sans text-stone-dim text-base">
+                  <p className="font-serif font-bold text-stone text-lg">
                     {biz.name}
                   </p>
                   {!biz.isDemo && <p>{BUSINESS.street}</p>}
@@ -165,10 +165,10 @@ export default function ContactClient() {
 
               {/* Business Hours */}
               <div>
-                <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+                <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
                   Business Hours
                 </p>
-                <div className="space-y-2 font-satoshi text-stone-dim text-base">
+                <div className="space-y-2 font-sans text-stone-dim text-base">
                   <div className="flex justify-between border-b border-black/[0.06] pb-2">
                     <span>Monday &ndash; Saturday</span>
                     <span className="text-stone">7am &ndash; 7pm</span>
@@ -182,7 +182,7 @@ export default function ContactClient() {
 
               {/* Service Area */}
               <div>
-                <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+                <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
                   Service Area
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -190,7 +190,7 @@ export default function ContactClient() {
                     [`${biz.city} Metro`, `North ${biz.city}`, `South ${biz.city}`, `East ${biz.city}`, `West ${biz.city}`, `Greater ${biz.city}`].map((area) => (
                       <span
                         key={area}
-                        className="font-satoshi text-stone-dim/60 text-xs border border-black/[0.06] px-3 py-1.5"
+                        className="font-sans text-stone-dim/60 text-xs border border-black/[0.06] px-3 py-1.5"
                       >
                         {area}
                       </span>
@@ -199,7 +199,7 @@ export default function ContactClient() {
                     LOCATIONS.map((loc) => (
                       <span
                         key={loc.slug}
-                        className="font-satoshi text-stone-dim/60 text-xs border border-black/[0.06] px-3 py-1.5"
+                        className="font-sans text-stone-dim/60 text-xs border border-black/[0.06] px-3 py-1.5"
                       >
                         {loc.city}, {loc.state}
                       </span>
@@ -263,22 +263,22 @@ export default function ContactClient() {
                   key={item.label}
                   className="border border-black/[0.06] bg-warm-gray p-6 text-center"
                 >
-                  <p className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] mb-2">
+                  <p className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] mb-2">
                     {item.label}
                   </p>
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="font-clash font-bold text-accent text-xl hover:text-accent-light transition-colors"
+                      className="font-serif font-bold text-accent text-xl hover:text-accent-light transition-colors"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="font-clash font-bold text-accent text-xl">
+                    <p className="font-serif font-bold text-accent text-xl">
                       {item.value}
                     </p>
                   )}
-                  <p className="font-satoshi text-stone-dim/40 text-xs mt-2">
+                  <p className="font-sans text-stone-dim/40 text-xs mt-2">
                     {item.description}
                   </p>
                 </div>
@@ -291,13 +291,13 @@ export default function ContactClient() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/"
-                className="inline-block border border-black/[0.1] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-accent/30 hover:text-accent transition-colors duration-300"
+                className="inline-block border border-black/[0.1] text-stone font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-accent/30 hover:text-accent transition-colors duration-300"
               >
                 Back to Home
               </Link>
               <Link
                 href="/services"
-                className="inline-block border border-black/[0.1] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-accent/30 hover:text-accent transition-colors duration-300"
+                className="inline-block border border-black/[0.1] text-stone font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-accent/30 hover:text-accent transition-colors duration-300"
               >
                 View Services
               </Link>

@@ -1,7 +1,7 @@
 "use client";
 
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { usePersonalization } from "@/lib/personalization";
 import { BIZ } from "@/config/biz";
@@ -19,106 +19,125 @@ const allTestimonials = [
     detail: "Pine Removal",
   },
   {
-    quote: "Honest pricing, showed up when they said they would, and swept the driveway after. That's all I ask.",
-    name: "James P.",
-    detail: "Stump Grinding",
-  },
-  {
     quote: "Spoke with Rosa in Spanish and it was amazing to work with someone who truly understands what you need. Team arrived on time, worked fast, and the yard was spotless.",
     name: "Alicia V.",
     detail: "Tree Trimming",
   },
 ];
 
-// Split into 3 columns
-const col1 = [allTestimonials[0], allTestimonials[3], allTestimonials[1], allTestimonials[4]];
-const col2 = [allTestimonials[2], allTestimonials[0], allTestimonials[5], allTestimonials[3]];
-const col3 = [allTestimonials[1], allTestimonials[4], allTestimonials[2], allTestimonials[5]];
-
-function TestimonialCard({ quote, name, detail, city, state }: { quote: string; name: string; detail: string; city: string; state: string }) {
-  return (
-    <div className="p-8 border border-black/[0.08] bg-elevated hover:border-accent/20 transition-colors duration-500 mb-4">
-      <p className="font-satoshi text-stone text-base leading-relaxed mb-6">
-        &ldquo;{quote}&rdquo;
-      </p>
-      <div className="flex items-center gap-3">
-        <div className="w-8 h-px bg-accent/30" />
-        <div>
-          <span className="font-satoshi text-accent/80 text-sm font-medium block">{name}</span>
-          <span className="font-satoshi text-stone-dim/50 text-xs">{city}, {state} · {detail}</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ScrollColumn({ testimonials, duration, direction, city, state }: { testimonials: typeof allTestimonials; duration: number; direction: "up" | "down"; city: string; state: string }) {
-  const y = direction === "up" ? "-50%" : "0%";
-  const yInitial = direction === "up" ? "0%" : "-50%";
-
-  return (
-    <div className="overflow-hidden h-[600px] relative">
-      {/* Top/bottom fade masks */}
-      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-elevated to-transparent z-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-elevated to-transparent z-10 pointer-events-none" />
-      <motion.div
-        animate={{ translateY: [yInitial, y] }}
-        transition={{
-          duration,
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "loop",
-        }}
-        className="flex flex-col"
-      >
-        {/* Duplicate for seamless loop */}
-        {[...testimonials, ...testimonials].map((t, i) => (
-          <TestimonialCard key={i} quote={t.quote} name={t.name} detail={t.detail} city={city} state={state} />
-        ))}
-      </motion.div>
-    </div>
-  );
-}
-
 export function Testimonials() {
   const biz = usePersonalization();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const scrollToIndex = useCallback((index: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const cards = container.children;
+    if (cards[index]) {
+      (cards[index] as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
+      setActiveIndex(index);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => {
+        const next = (prev + 1) % allTestimonials.length;
+        scrollToIndex(next);
+        return next;
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, scrollToIndex]);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.scrollWidth / allTestimonials.length;
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveIndex(index);
+    };
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <SectionWrapper reveal="up" className="bg-elevated py-20 sm:py-24 lg:py-32 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
-        {/* ═══ HOOK ═══ */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
-          <h2 className="font-clash font-bold text-5xl sm:text-7xl lg:text-8xl leading-none tracking-[-0.03em] text-stone">
-            Don&apos;t take<br />
-            <span className="text-accent">our word.</span>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-[-0.02em] text-stone">
+            What {biz.city}<br />
+            <span className="text-accent italic">says about us.</span>
           </h2>
-          <p className="font-satoshi text-stone-dim/70 text-sm max-w-xs leading-relaxed lg:text-right">
-            Real reviews from real customers in {biz.city}.
+          <p className="font-sans text-stone-dim/70 text-sm max-w-xs leading-relaxed lg:text-right">
+            Real reviews from real customers across Contra Costa County.
           </p>
         </div>
 
-        {/* ═══ BODY ═══ */}
-        {/* Desktop: 3 scrolling columns */}
-        <div className="hidden lg:grid grid-cols-3 gap-4">
-          <ScrollColumn testimonials={col1} duration={25} direction="up" city={biz.city} state={biz.state} />
-          <ScrollColumn testimonials={col2} duration={30} direction="down" city={biz.city} state={biz.state} />
-          <ScrollColumn testimonials={col3} duration={22} direction="up" city={biz.city} state={biz.state} />
-        </div>
-
-        {/* Mobile: static cards */}
-        <div className="lg:hidden space-y-4">
-          {allTestimonials.slice(0, 4).map((t, i) => (
-            <TestimonialCard key={i} quote={t.quote} name={t.name} detail={t.detail} city={biz.city} state={biz.state} />
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {allTestimonials.map((t, i) => (
+            <div
+              key={i}
+              className="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[calc(33.333%-16px)] bg-dark rounded-2xl p-8 border border-black/[0.06] flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex gap-0.5 mb-6">
+                  {[...Array(5)].map((_, j) => (
+                    <svg key={j} width="14" height="14" viewBox="0 0 20 20" fill="#1A5C4B" aria-hidden="true">
+                      <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="font-sans text-stone text-base leading-relaxed mb-6">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+              </div>
+              <div className="flex items-center gap-3 pt-4 border-t border-black/[0.06]">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <span className="font-serif text-accent text-sm">{t.name[0]}</span>
+                </div>
+                <div>
+                  <span className="font-sans text-stone text-sm font-medium block">{t.name}</span>
+                  <span className="font-sans text-stone-dim/50 text-xs">{biz.city} · {t.detail}</span>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* ═══ CTA ═══ */}
-        <div className="mt-16 lg:mt-20 text-center">
+        <div className="flex justify-center gap-2 mt-8">
+          {allTestimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToIndex(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === activeIndex ? "bg-accent w-6" : "bg-black/15 w-2"
+              }`}
+              aria-label={`Go to review ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
           <Link
             href="/reviews"
-            className="link-underline inline-block font-satoshi font-bold text-accent text-sm uppercase tracking-[0.15em] hover:text-accent-light transition-colors duration-300"
+            className="inline-block font-sans font-bold text-accent text-sm uppercase tracking-[0.15em] hover:text-accent-light transition-colors duration-300"
           >
-            Read All Reviews
+            Read All Reviews &rarr;
           </Link>
         </div>
       </div>

@@ -74,19 +74,19 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
         <div className="max-w-7xl mx-auto">
           <Breadcrumb items={crumbs} />
 
-          <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+          <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
             {service.shortName}
           </p>
-          <h1 className="font-clash font-bold text-4xl sm:text-5xl lg:text-[64px] leading-[0.92] tracking-tight mb-6">
+          <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-[64px] leading-[0.92] tracking-tight mb-6">
             <span className="text-stone">{service.name}</span>{" "}
             <span className="text-accent">in {biz.city}&nbsp;{biz.state}</span>
           </h1>
-          <p className="font-satoshi text-stone-dim text-lg leading-relaxed max-w-2xl mb-8">
+          <p className="font-sans text-stone-dim text-lg leading-relaxed max-w-2xl mb-8">
             {service.description}
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
+            className="inline-block bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
           >
             Get a Free Quote
           </Link>
@@ -97,10 +97,10 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
       <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           <div className="lg:col-span-3">
-            <h2 className="font-clash font-bold text-stone text-2xl sm:text-3xl mb-8">
+            <h2 className="font-serif font-bold text-stone text-2xl sm:text-3xl mb-8">
               About This Service
             </h2>
-            <p className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed">
+            <p className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed">
               {service.longDescription}{" "}
               <Link href="/about" className="text-accent hover:text-accent-light transition-colors">
                 Learn about our crew
@@ -109,13 +109,13 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
 
             {/* Link to locations */}
             <div className="mt-10 pt-8 border-t border-black/[0.06]">
-              <p className="font-satoshi text-stone-dim/60 text-sm mb-3">
+              <p className="font-sans text-stone-dim/60 text-sm mb-3">
                 We offer {service.name.toLowerCase()} across the {biz.city} metro area.
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 <Link
                   href="/locations"
-                  className="font-satoshi text-accent text-sm hover:text-accent-light transition-colors inline-flex items-center gap-2"
+                  className="font-sans text-accent text-sm hover:text-accent-light transition-colors inline-flex items-center gap-2"
                 >
                   View all service areas
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -124,7 +124,7 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
                 </Link>
                 <Link
                   href="/reviews"
-                  className="font-satoshi text-accent text-sm hover:text-accent-light transition-colors inline-flex items-center gap-2"
+                  className="font-sans text-accent text-sm hover:text-accent-light transition-colors inline-flex items-center gap-2"
                 >
                   Read customer reviews
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -137,10 +137,10 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
 
           <div className="lg:col-span-2">
             <div className="lg:sticky lg:top-28">
-              <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+              <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
                 Free estimate
               </p>
-              <h3 className="font-clash font-bold text-stone text-xl mb-6">
+              <h3 className="font-serif font-bold text-stone text-xl mb-6">
                 Get Your Quote
               </h3>
               <QuoteForm compact />
@@ -152,10 +152,10 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
       {/* FAQ section */}
       <section className="bg-dark px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
         <div className="max-w-3xl mx-auto">
-          <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+          <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
             Common questions
           </p>
-          <h2 className="font-clash font-bold text-stone text-2xl sm:text-3xl mb-12">
+          <h2 className="font-serif font-bold text-stone text-2xl sm:text-3xl mb-12">
             {service.shortName} FAQ
           </h2>
           <FAQAccordion faqs={service.faqs} />
@@ -165,10 +165,10 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
       {/* Other Services */}
       <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
         <div className="max-w-7xl mx-auto">
-          <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+          <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
             More from {biz.name}
           </p>
-          <h2 className="font-clash font-bold text-stone text-2xl sm:text-3xl mb-12">
+          <h2 className="font-serif font-bold text-stone text-2xl sm:text-3xl mb-12">
             Other Services
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.02]">
@@ -180,7 +180,7 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
               >
                 <div className="absolute top-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/30 transition-colors duration-500" />
                 <div className="flex items-start justify-between mb-6">
-                  <span className="font-clash font-bold text-accent/15 text-xs group-hover:text-accent/40 transition-colors duration-500">
+                  <span className="font-serif font-bold text-accent/15 text-xs group-hover:text-accent/40 transition-colors duration-500">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <svg
@@ -195,10 +195,10 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
                     <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <h3 className="font-clash font-bold text-stone text-lg mb-2 group-hover:text-accent transition-colors duration-300">
+                <h3 className="font-serif font-bold text-stone text-lg mb-2 group-hover:text-accent transition-colors duration-300">
                   {s.name}
                 </h3>
-                <p className="font-satoshi text-stone-dim/60 text-sm leading-relaxed">
+                <p className="font-sans text-stone-dim/60 text-sm leading-relaxed">
                   {s.description}
                 </p>
               </Link>

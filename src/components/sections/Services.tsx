@@ -4,57 +4,43 @@ import Link from "next/link";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { SERVICES } from "@/lib/data";
 import { BIZ } from "@/config/biz";
+import { Trees, Scissors, CircleDot, Zap, LandPlot, Link2 } from "lucide-react";
+
+const serviceIcons = [Trees, Scissors, CircleDot, Zap, LandPlot, Link2];
 
 export function Services() {
-  // Reorder for bento: normals first 3, then anchor+normal, then normal+anchor
   const items = BIZ.homepageServices;
 
   return (
     <SectionWrapper id="services" reveal="up" className="bg-dark py-20 sm:py-24 lg:py-32 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
-        {/* ═══ HOOK ═══ */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
-          <h2 className="font-clash font-bold text-5xl sm:text-7xl lg:text-8xl leading-none tracking-[-0.03em] text-stone">
-            We handle<br />
-            <span className="text-accent">every tree.</span>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-[-0.02em] text-stone">
+            What we<br />
+            <span className="text-accent italic">do best.</span>
           </h2>
-          <p className="font-satoshi text-stone-dim/70 text-sm max-w-xs leading-relaxed lg:text-right">
+          <p className="font-sans text-stone-dim/70 text-sm max-w-xs leading-relaxed lg:text-right">
             One dead limb or a whole lot. Here&apos;s what we do most.
           </p>
         </div>
 
-        {/* ═══ BODY ═══ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.06]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {items.map((service, i) => {
             const serviceData = SERVICES[i];
-            const isAnchor = service.anchor;
+            const Icon = serviceIcons[i] || Trees;
             return (
               <Link
                 href={`/services/${serviceData?.slug ?? ""}`}
                 key={service.num}
-                className={`card-sweep bg-elevated group transition-all duration-500 block relative ${
-                  isAnchor
-                    ? "sm:col-span-2 p-10 lg:p-14"
-                    : "p-8 lg:p-10"
-                }`}
+                className="group bg-elevated rounded-xl p-8 lg:p-10 border border-black/[0.06] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block"
               >
-                <div className="absolute top-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-700 ease-out-expo" />
-
-                <div className="flex items-start justify-between mb-6 lg:mb-8">
-                  <span className={`font-clash font-bold text-accent/[0.10] leading-none group-hover:text-accent/[0.25] transition-colors duration-500 ${
-                    isAnchor ? "text-[100px] lg:text-[140px]" : "text-[60px] lg:text-[80px]"
-                  }`}>
-                    {service.num}
-                  </span>
+                <div className="w-12 h-12 rounded-xl bg-accent/8 flex items-center justify-center mb-6 group-hover:bg-accent/15 transition-colors duration-300">
+                  <Icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className={`font-clash font-bold text-stone mb-3 group-hover:text-accent group-hover:translate-x-2 transform transition-all duration-300 ${
-                  isAnchor ? "text-2xl lg:text-3xl" : "text-lg lg:text-xl"
-                }`}>
+                <h3 className="font-serif text-xl lg:text-2xl text-stone mb-3 group-hover:text-accent transition-colors duration-300">
                   {service.name}
                 </h3>
-                <p className={`font-satoshi text-stone-dim/70 leading-relaxed ${
-                  isAnchor ? "text-base max-w-lg" : "text-sm"
-                }`}>
+                <p className="font-sans text-stone-dim/70 text-sm leading-relaxed">
                   {service.desc}
                 </p>
               </Link>
@@ -62,13 +48,12 @@ export function Services() {
           })}
         </div>
 
-        {/* ═══ CTA ═══ */}
         <div className="mt-12 text-center">
           <Link
             href="/services"
-            className="link-underline inline-block font-satoshi font-bold text-accent text-sm uppercase tracking-[0.15em] hover:text-accent-light transition-colors duration-300"
+            className="inline-block font-sans font-bold text-accent text-sm uppercase tracking-[0.15em] hover:text-accent-light transition-colors duration-300"
           >
-            View All Services
+            View All Services &rarr;
           </Link>
         </div>
       </div>

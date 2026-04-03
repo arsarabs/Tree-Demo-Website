@@ -18,7 +18,7 @@ export function ServiceCard({
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/30 transition-colors duration-500" />
       <div className="flex items-start justify-between mb-8">
-        <span className="font-clash font-bold text-accent/15 text-sm group-hover:text-accent/40 transition-colors duration-500">
+        <span className="font-serif font-bold text-accent/15 text-sm group-hover:text-accent/40 transition-colors duration-500">
           {num}
         </span>
         <svg
@@ -33,10 +33,10 @@ export function ServiceCard({
           <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
-      <h3 className="font-clash font-bold text-stone text-xl mb-3 group-hover:text-accent transition-colors duration-300">
+      <h3 className="font-serif font-bold text-stone text-xl mb-3 group-hover:text-accent transition-colors duration-300">
         {name}
       </h3>
-      <p className="font-satoshi text-stone-dim/60 text-sm leading-relaxed">{description}</p>
+      <p className="font-sans text-stone-dim/60 text-sm leading-relaxed">{description}</p>
     </Link>
   );
 }

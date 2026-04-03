@@ -9,17 +9,17 @@ export default function TermsClient() {
   return (
     <div id="main-content" className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
       <div className="max-w-3xl mx-auto">
-        <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+        <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
           Legal
         </p>
-        <h1 className="font-clash font-bold text-3xl sm:text-4xl lg:text-5xl text-stone tracking-tight mb-8">
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-stone tracking-tight mb-8">
           Terms of Service
         </h1>
-        <p className="font-satoshi text-stone-dim/50 text-sm mb-12">
+        <p className="font-sans text-stone-dim/50 text-sm mb-12">
           Last updated: March 16, 2026
         </p>
 
-        <div className="space-y-10 font-satoshi text-stone-dim text-base leading-relaxed">
+        <div className="space-y-10 font-sans text-stone-dim text-base leading-relaxed">
           <section>
             <p>
               These Terms of Service (&quot;Terms&quot;) govern your use of the {biz.name} website
@@ -28,7 +28,7 @@ export default function TermsClient() {
           </section>
 
           <section>
-            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Services
             </h2>
             <p>
@@ -40,7 +40,7 @@ export default function TermsClient() {
           </section>
 
           <section>
-            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Pricing &amp; Payment
             </h2>
             <p className="mb-4">
@@ -55,7 +55,7 @@ export default function TermsClient() {
           </section>
 
           <section>
-            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Scheduling &amp; Cancellation
             </h2>
             <p>
@@ -66,7 +66,7 @@ export default function TermsClient() {
           </section>
 
           <section>
-            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Liability
             </h2>
             <p>
@@ -79,7 +79,7 @@ export default function TermsClient() {
           </section>
 
           <section>
-            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Prohibited Items
             </h2>
             <p className="mb-4">
@@ -95,7 +95,7 @@ export default function TermsClient() {
           </section>
 
           <section>
-            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Website Use
             </h2>
             <p>
@@ -106,7 +106,7 @@ export default function TermsClient() {
           </section>
 
           <section>
-            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Changes to Terms
             </h2>
             <p>
@@ -116,7 +116,7 @@ export default function TermsClient() {
           </section>
 
           <section>
-            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Contact
             </h2>
             <p className="mb-4">
