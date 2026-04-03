@@ -11,14 +11,14 @@ const breadcrumbItems = [{ label: "Reviews", href: "/reviews" }];
 function getTestimonials(city: string, state: string) {
   const loc = `${city}, ${state}`;
   return [
-    { name: "Mike T.", location: loc, service: "Garage Cleanout", rating: 5, text: "Called at 9am, they were here by noon. Cleared out my entire garage — old furniture, boxes, a broken treadmill — in under two hours. Fair price, no surprises. These guys are the real deal." },
-    { name: "Sarah K.", location: loc, service: "Construction Debris", rating: 5, text: "Had a mountain of drywall and lumber from our kitchen remodel. The crew showed up on time, loaded everything up, and even swept the driveway. Way better than renting a dumpster." },
-    { name: "Jennifer M.", location: loc, service: "Yard Waste", rating: 5, text: "We had two huge piles of branches and yard debris from a weekend of landscaping. The crew loaded everything in about 45 minutes and the yard looked amazing afterward. Price was exactly what they quoted — not a penny more. Will definitely use them again next spring." },
-    { name: "David R.", location: loc, service: "Full Property Cleanout", rating: 5, text: "My mother passed and we needed her entire house cleared out. The team was respectful, careful with the items we wanted to keep, and had the whole property empty in one day. They made an incredibly difficult time so much easier. Cannot recommend them enough." },
-    { name: "Chris P.", location: loc, service: "Furniture Removal", rating: 5, text: "Needed an old sectional sofa and a broken recliner hauled out of our basement. These things were heavy and awkward to move, but the crew got them out without scratching a single wall. Charged us $125 for both pieces — super fair. Fast and professional from start to finish." },
-    { name: "Amanda L.", location: loc, service: "Same-Day Pickup", rating: 5, text: "I called at 10am on a Saturday expecting to wait until Monday. They showed up at 1pm the same day and hauled away an old hot tub, a busted dresser, and a pile of random garage junk. No rush fee either. Honestly the easiest home project I have ever done — because I did not have to do anything." },
-    { name: "Tom W.", location: loc, service: "Appliance Removal", rating: 5, text: "Had a dead washer, dryer, and an old water heater sitting in the garage for months. The team picked up all three in one trip. They disconnected the appliances, loaded them up, and were done in under 30 minutes. Great price and they recycled everything properly." },
-    { name: "Lisa H.", location: loc, service: "Commercial", rating: 5, text: "We run a small retail shop and needed old shelving, display cases, and a ton of cardboard cleared out after our renovation. The crew came after hours so it would not disrupt business and had everything gone by 9pm. Professional, on time, and priced very reasonably for the amount of stuff they took." },
+    { name: "Karen L.", location: "Walnut Creek, CA", service: "Tree Removal", rating: 5, text: "Derek and his crew took down a massive Valley Oak in our backyard that had been worrying us for years. They were on time, incredibly professional, and cleaned up so thoroughly that you'd never know a 60-foot tree had been there. Pricing was fair and exactly what they quoted. Will not use anyone else." },
+    { name: "Marcus T.", location: "Concord, CA", service: "Emergency Storm Response", rating: 5, text: "Called at 7am after a storm knocked a branch onto my fence. Rosa picked up immediately and had a crew out by 10. I was expecting a mess and a huge bill — it was neither. Seriously impressive. Saved my number for anyone who asks." },
+    { name: "Sandra P.", location: "Danville, CA", service: "Eucalyptus Removal", rating: 5, text: "I got 4 quotes for my eucalyptus removal. Highland was not the cheapest but they were the only ones who explained exactly what the job involved and why. That transparency sold me. Job done in one day, zero mess, and Derek sent me a photo of the stump ground down so I could see the depth." },
+    { name: "James R.", location: "Lafayette, CA", service: "Tree Trimming", rating: 5, text: "These guys are the real deal. Came out for a free estimate same day I called. No pressure, no upsell nonsense. Just told me exactly what needed to happen and what it would cost. The crew worked fast and Rosa followed up afterward to make sure I was happy. Rare to find that these days." },
+    { name: "Alicia V.", location: "Pleasant Hill, CA", service: "Tree Trimming", rating: 5, text: "Spoke with Rosa in Spanish and it was amazing to work with someone who truly understands what you need. The team arrived on time, worked fast, and the yard was spotless. Highly recommended for the local Latino community." },
+    { name: "Brian K.", location: "San Ramon, CA", service: "Pine Removal", rating: 5, text: "Third time using Highland and they just keep getting better. This time it was 3 pine trees along our property line — done in half a day. Crew was friendly, efficient, and left the yard cleaner than they found it. I've referred them to 4 neighbors and everyone has thanked me." },
+    { name: "Theresa N.", location: "Orinda, CA", service: "Oak Trimming", rating: 4, text: "Great work overall — the tree came down perfectly and the crew was polite. Only reason for 4 stars is scheduling pushed out a few days, though Rosa was upfront about it and kept me informed. Would still hire again without question." },
+    { name: "David W.", location: loc, service: "Stump Grinding", rating: 5, text: "Five stumps from trees the last company left behind. All ground down in two hours. Should have called these guys first. Clean work, fair price, and they even raked the chips level so I could plant grass right over the top." },
   ];
 }
 
@@ -97,13 +97,13 @@ export default function ReviewsClient() {
           {/* ── Aggregate Rating Summary ── */}
           <section className="mb-16 lg:mb-20 text-center">
             <div className="border border-black/[0.06] bg-warm-gray p-8 lg:p-12 inline-block w-full max-w-md mx-auto">
-              <p className="font-clash font-bold text-accent text-5xl sm:text-6xl mb-2">
+              <p className="font-serif font-bold text-accent text-5xl sm:text-6xl mb-2">
                 {biz.rating}
               </p>
               <div className="flex justify-center mb-3">
                 <Stars count={5} />
               </div>
-              <p className="font-satoshi text-stone-dim text-sm">
+              <p className="font-sans text-stone-dim text-sm">
                 Based on{" "}
                 <span className="text-stone font-medium">
                   {biz.reviewCount}+
@@ -115,10 +115,10 @@ export default function ReviewsClient() {
 
           {/* ── Intro / Commitment Section ── */}
           <section className="mb-16 lg:mb-20 max-w-3xl">
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
               Our Commitment to Every Customer
             </h2>
-            <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
+            <div className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
               <p>
                 At {biz.name}, customer satisfaction is not just a goal — it is the standard
                 we hold ourselves to on every single job. With over {biz.jobsCompleted} jobs
@@ -135,7 +135,7 @@ export default function ReviewsClient() {
           <div className="mb-16 lg:mb-20">
             <img
               src="/before-after-1.jpg"
-              alt="Before and after tree service job — garage cleanout"
+              alt="Before and after tree removal job — Walnut Creek CA"
               className="w-full h-auto"
               width={1200}
               height={800}
@@ -145,10 +145,10 @@ export default function ReviewsClient() {
 
           {/* ── Testimonials ── */}
           <section className="mb-20 lg:mb-28">
-            <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+            <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
               What Our Customers Say
             </p>
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-10">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-10">
               Real Reviews From Real Jobs
             </h2>
 
@@ -159,14 +159,14 @@ export default function ReviewsClient() {
                   className="border border-black/[0.06] bg-warm-gray p-6 lg:p-8"
                 >
                   <Stars count={review.rating} />
-                  <p className="font-satoshi text-stone text-base leading-relaxed mt-4 mb-6">
+                  <p className="font-sans text-stone text-base leading-relaxed mt-4 mb-6">
                     &ldquo;{review.text}&rdquo;
                   </p>
                   <div className="border-t border-black/[0.06] pt-4">
-                    <p className="font-clash font-bold text-stone text-sm">
+                    <p className="font-serif font-bold text-stone text-sm">
                       {review.name}
                     </p>
-                    <p className="font-satoshi text-stone-dim/50 text-xs mt-0.5">
+                    <p className="font-sans text-stone-dim/50 text-xs mt-0.5">
                       {review.location} &middot; {review.service}
                     </p>
                   </div>
@@ -178,23 +178,23 @@ export default function ReviewsClient() {
           {/* ── Leave a Review ── */}
           <section className="mb-20 lg:mb-28">
             <div className="border border-accent/10 bg-warm-gray p-8 lg:p-12 text-center">
-              <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
+              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
                 Leave Us a Review
               </h2>
-              <p className="font-satoshi text-stone-dim text-base leading-relaxed max-w-lg mx-auto mb-6">
+              <p className="font-sans text-stone-dim text-base leading-relaxed max-w-lg mx-auto mb-6">
                 Had a great experience with {biz.name}? We&apos;d love to
                 hear about it. Your review helps other {biz.city} homeowners find
                 reliable tree service.
               </p>
               {/* // TODO: embed Google Reviews widget — requires Google Places API key in server-side API route only */}
-              <p className="font-satoshi text-stone-dim/40 text-sm">
+              <p className="font-sans text-stone-dim/40 text-sm">
                 Google Reviews widget coming soon
               </p>
             </div>
           </section>
 
           {/* ── Cross-links ── */}
-          <div className="mb-20 lg:mb-28 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
+          <div className="mb-20 lg:mb-28 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm">
             <Link href="/services" className="text-accent hover:text-accent-light transition-colors">
               View our services &rarr;
             </Link>
@@ -208,16 +208,16 @@ export default function ReviewsClient() {
 
           {/* ── CTA ── */}
           <section className="text-center">
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
               See Why {biz.city} Trusts {biz.name}
             </h2>
-            <p className="font-satoshi text-stone-dim text-base mb-8 max-w-xl mx-auto">
+            <p className="font-sans text-stone-dim text-base mb-8 max-w-xl mx-auto">
               {biz.jobsCompleted} jobs done. {biz.rating}-star rating.
               Get your free quote and see the difference.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
+              className="inline-block bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
             >
               Get a Free Quote
             </Link>

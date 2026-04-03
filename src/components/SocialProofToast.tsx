@@ -39,17 +39,17 @@ export function SocialProofToast() {
 
   return (
     <div className="fixed bottom-20 lg:bottom-6 left-4 lg:left-6 z-30 animate-fadeInUp max-w-xs">
-      <div className="bg-dark/95 backdrop-blur-xl border border-black/[0.08] p-4 shadow-xl flex items-start gap-3">
-        <div className="w-8 h-8 bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0 mt-0.5">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B6B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <div className="bg-dark/95 backdrop-blur-xl border border-black/[0.08] rounded-xl p-4 shadow-xl flex items-start gap-3">
+        <div className="w-8 h-8 bg-accent/10 rounded-lg border border-accent/20 flex items-center justify-center shrink-0 mt-0.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1A5C4B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-satoshi text-stone text-sm leading-snug">
+          <p className="font-sans text-stone text-sm leading-snug">
             Someone in <span className="text-accent font-medium">{message.city}</span> just requested {message.service}
           </p>
-          <p className="font-satoshi text-stone-dim/40 text-xs mt-1">
+          <p className="font-sans text-stone-dim/40 text-xs mt-1">
             A few moments ago
           </p>
         </div>

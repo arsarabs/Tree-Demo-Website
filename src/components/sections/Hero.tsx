@@ -1,93 +1,133 @@
 "use client";
 
 import { usePersonalization } from "@/lib/personalization";
-import { AnimatedGroup } from "@/components/ui/animated-group";
 
-const transitionVariants = {
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.05, delayChildren: 0.3 },
-    },
-  },
-  item: {
-    hidden: { opacity: 0, filter: "blur(12px)", y: 12 },
-    visible: {
-      opacity: 1,
-      filter: "blur(0px)",
-      y: 0,
-      transition: { type: "spring", bounce: 0.3, duration: 1.5 },
-    },
-  },
-};
+const LEAF_COUNT = 12;
+const leaves = Array.from({ length: LEAF_COUNT }, (_, i) => ({
+  id: i,
+  left: `${5 + Math.random() * 90}%`,
+  delay: `${Math.random() * 8}s`,
+  duration: `${6 + Math.random() * 6}s`,
+  size: 10 + Math.random() * 8,
+  rotation: Math.floor(Math.random() * 360),
+  drift: Math.random() > 0.5 ? 1 : -1,
+}));
 
 export function Hero() {
   const biz = usePersonalization();
   return (
-    <section className="relative overflow-hidden bg-dark">
-      {/* Radial gradient accents — no images needed */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none isolate"
-      >
-        <div className="w-[35rem] h-[80rem] -translate-y-[350px] absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,rgba(27,107,58,0.08)_0%,rgba(27,107,58,0.02)_50%,transparent_80%)]" />
-        <div className="h-[80rem] absolute right-0 top-0 w-56 rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(27,107,58,0.05)_0%,transparent_100%)]" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-[radial-gradient(circle,rgba(27,107,58,0.06)_0%,transparent_70%)]" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#E8F4EE] to-dark">
+      {/* Falling leaves */}
+      <div className="absolute inset-0 pointer-events-none z-0" aria-hidden>
+        {leaves.map((leaf) => (
+          <div
+            key={leaf.id}
+            className="falling-leaf absolute -top-6"
+            style={{
+              left: leaf.left,
+              animationDelay: leaf.delay,
+              animationDuration: leaf.duration,
+              ["--drift" as string]: `${leaf.drift * (30 + Math.random() * 40)}px`,
+            }}
+          >
+            <svg
+              width={leaf.size}
+              height={leaf.size}
+              viewBox="0 0 24 24"
+              fill="none"
+              style={{ transform: `rotate(${leaf.rotation}deg)` }}
+            >
+              <path
+                d="M12 2C6.5 2 2 6.5 2 12c0 2.5 1 4.8 2.5 6.5C7 16 9.5 14 12 14s5 2 7.5 4.5C21 16.8 22 14.5 22 12c0-5.5-4.5-10-10-10z"
+                fill="currentColor"
+                className="text-accent/[0.06]"
+              />
+              <path d="M12 2v12" stroke="currentColor" strokeWidth="0.5" className="text-accent/[0.10]" />
+            </svg>
+          </div>
+        ))}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pt-36 pb-20 lg:pt-48 lg:pb-28">
-        <div className="mx-auto max-w-4xl text-center">
-          <AnimatedGroup variants={transitionVariants}>
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-16 lg:pt-36 lg:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Image side */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative overflow-hidden rounded-2xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/our-junk-removal-team.webp"
+                srcSet="/our-junk-removal-team-mobile.webp 800w, /our-junk-removal-team.webp 1200w"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                alt="Highland Tree Service crew at work in Walnut Creek CA"
+                width={1200}
+                height={800}
+                className="w-full h-[400px] lg:h-[560px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+          </div>
+
+          {/* Content side */}
+          <div className="order-1 lg:order-2">
             {/* Social proof badge */}
-            <div className="inline-flex items-center gap-3 rounded-full border border-black/[0.08] bg-black/[0.03] px-5 py-2 mb-10 backdrop-blur-sm">
+            <div
+              className="inline-flex items-center gap-3 rounded-full border border-black/[0.08] bg-white/60 backdrop-blur-sm px-5 py-2 mb-8 animate-fadeInUp"
+              style={{ animationDelay: "0.1s" }}
+            >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="12" height="12" viewBox="0 0 20 20" fill="#1B6B3A" aria-hidden="true">
+                  <svg key={i} width="12" height="12" viewBox="0 0 20 20" fill="#1A5C4B" aria-hidden="true">
                     <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z" />
                   </svg>
                 ))}
               </div>
               <span className="w-px h-4 bg-black/10" />
-              <span className="font-satoshi text-stone-dim text-xs font-medium tracking-wide">
-                {biz.rating} rating · {biz.jobsCompleted} jobs completed
+              <span className="font-sans text-stone-dim text-xs font-medium tracking-wide">
+                {biz.rating} rating · {biz.reviewCount} reviews
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-balance font-clash font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-[-0.03em]">
-              <span className="text-stone">{biz.city}&apos;s</span>{" "}
-              <span className="text-accent">tree crew.</span>
+            <h1
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1] tracking-[-0.02em] mb-6 animate-fadeInUp"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <span className="text-stone">{biz.city}&apos;s</span>
+              <br />
+              <span className="text-accent italic">Trusted Tree Crew</span>
             </h1>
 
             {/* Description */}
-            <p className="mx-auto mt-8 max-w-xl text-pretty font-satoshi text-stone-dim text-lg leading-relaxed">
+            <p
+              className="font-sans text-stone-dim text-lg leading-[1.7] max-w-lg mb-8 animate-fadeInUp"
+              style={{ animationDelay: "0.3s" }}
+            >
               We remove, trim, and grind so you don&apos;t have to worry about it.
-              Family-owned. Local crew. No subcontractors. Ever.
+              Family-owned since 2011. No subcontractors. Ever.
             </p>
 
             {/* CTAs */}
-            <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div
+              className="flex flex-col sm:flex-row gap-3 animate-fadeInUp"
+              style={{ animationDelay: "0.4s" }}
+            >
               <a
                 href="#quote"
-                className="btn-magnetic border-draw bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300 text-center"
+                className="bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 rounded-lg hover:bg-accent-light transition-colors duration-300 text-center"
               >
-                Get My Free Quote
+                Get a Free Estimate
               </a>
               <a
                 href={`tel:${biz.phoneRaw}`}
-                className="group border border-black/[0.1] text-stone font-satoshi font-medium text-sm uppercase tracking-[0.12em] px-10 py-4 hover:border-accent/30 hover:text-accent transition-all duration-500 text-center flex items-center justify-center gap-3"
+                className="border border-black/[0.1] text-stone font-sans font-medium text-sm uppercase tracking-[0.12em] px-8 py-4 rounded-lg hover:border-accent/30 hover:text-accent transition-all duration-300 text-center flex items-center justify-center gap-3"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
                 {biz.phone}
               </a>
             </div>
-          </AnimatedGroup>
+          </div>
         </div>
       </div>
-
-      {/* Bottom gradient line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent" />
     </section>
   );
 }

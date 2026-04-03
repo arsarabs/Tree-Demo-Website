@@ -39,7 +39,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
         className="flex w-full items-center justify-between gap-4 p-6 text-left group"
       >
         <span className={cn(
-          "font-satoshi font-medium text-base sm:text-lg transition-colors duration-300",
+          "font-sans font-medium text-base sm:text-lg transition-colors duration-300",
           isOpen ? "text-stone" : "text-stone-dim group-hover:text-accent"
         )}>
           {question}
@@ -64,7 +64,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="font-satoshi text-stone-dim text-base pb-6 px-6 leading-relaxed max-w-xl">
+            <p className="font-sans text-stone-dim text-base pb-6 px-6 leading-relaxed max-w-xl">
               {answer}
             </p>
           </motion.div>
@@ -98,10 +98,10 @@ export function FAQ() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
           {/* ═══ HOOK ═══ */}
           <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
-            <h2 className="font-clash font-bold text-4xl sm:text-5xl leading-[0.92] tracking-tight mb-6 text-stone">
+            <h2 className="font-serif font-bold text-4xl sm:text-5xl leading-[0.92] tracking-tight mb-6 text-stone">
               Questions?
             </h2>
-            <p className="font-satoshi text-stone-dim/60 text-sm leading-relaxed max-w-xs mb-8">
+            <p className="font-sans text-stone-dim/60 text-sm leading-relaxed max-w-xs mb-8">
               Or just call{" "}
               <a href={`tel:${biz.phoneRaw}`} className="text-accent/60 hover:text-accent transition-colors">
                 {biz.phone}
@@ -115,7 +115,7 @@ export function FAQ() {
                   key={key}
                   onClick={() => { setSelectedCategory(key); setOpenIndex(null); }}
                   className={cn(
-                    "relative overflow-hidden whitespace-nowrap rounded-sm border px-3 py-1.5 text-xs font-medium font-satoshi uppercase tracking-[0.1em] transition-colors duration-300",
+                    "relative overflow-hidden whitespace-nowrap rounded-sm border px-3 py-1.5 text-xs font-medium font-sans uppercase tracking-[0.1em] transition-colors duration-300",
                     selectedCategory === key
                       ? "border-accent text-white"
                       : "border-black/[0.08] text-stone-dim/60 hover:text-stone hover:border-black/[0.15]"
