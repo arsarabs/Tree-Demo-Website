@@ -24,7 +24,7 @@ export function Footer() {
               </span>
             </div>
             <p className="font-satoshi text-stone-dim/40 text-xs mb-4">
-              {biz.city}&apos;s trusted junk removal crew.
+              {biz.city}&apos;s trusted tree service crew.
             </p>
             <address className="not-italic">
               <p className="font-satoshi text-stone-dim/30 text-xs">
@@ -128,9 +128,9 @@ export function Footer() {
 
         {/* SEO keyword paragraph */}
         <p className="font-satoshi text-stone-dim/40 text-xs leading-relaxed mb-6 max-w-3xl">
-          {biz.name} is a {biz.city} {biz.state} junk removal company offering same-day junk hauling,
-          affordable furniture removal, construction debris removal, and yard waste cleanup.
-          Proudly serving {biz.city} and the surrounding metro area.
+          {biz.name} is a family-owned tree service company in {biz.city}, {biz.state} offering tree removal,
+          tree trimming, stump grinding, and emergency storm damage response.
+          ISA Certified Arborist. Licensed and insured. Serving all of Contra Costa County.
         </p>
 
         <div className="h-px bg-black/[0.02] mb-6" />

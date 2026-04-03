@@ -9,24 +9,24 @@ import { BIZ } from "@/config/biz";
 const allTestimonials = [
   ...BIZ.testimonials,
   {
-    quote: "Called at 9am, they were here by noon. Two guys cleared my entire basement in about 90 minutes. Unreal.",
-    name: "David R.",
-    detail: "Basement Cleanout",
+    quote: "These guys are the real deal. Came out for a free estimate same day I called. No pressure, no upsell. Just told me exactly what needed to happen and what it would cost.",
+    name: "James R.",
+    detail: "Oak Trimming",
   },
   {
-    quote: "We had an entire apartment full of stuff after a tenant left. They didn't blink. Priced it fair, got it done fast.",
-    name: "Lisa M.",
-    detail: "Rental Turnover",
+    quote: "Third time using Highland and they just keep getting better. This time it was 3 pine trees along our property line — done in half a day. I've referred them to 4 neighbors.",
+    name: "Brian K.",
+    detail: "Pine Removal",
   },
   {
     quote: "Honest pricing, showed up when they said they would, and swept the driveway after. That's all I ask.",
     name: "James P.",
-    detail: "Garage Cleanout",
+    detail: "Stump Grinding",
   },
   {
-    quote: "I called three companies. Two never called back. These guys quoted me in 10 minutes and were at my place the next morning.",
-    name: "Rachel T.",
-    detail: "Furniture Removal",
+    quote: "Spoke with Rosa in Spanish and it was amazing to work with someone who truly understands what you need. Team arrived on time, worked fast, and the yard was spotless.",
+    name: "Alicia V.",
+    detail: "Tree Trimming",
   },
 ];
 

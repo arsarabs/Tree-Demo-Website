@@ -85,8 +85,8 @@ export default function ContactClient() {
             </h2>
             <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
               <p>
-                When you contact {biz.name}, getting your junk removed is straightforward and
-                stress-free. Here is exactly how it works from start to finish. First, give us a
+                When you contact {biz.name}, getting your tree work done is straightforward and
+                stress-free. Here is exactly how it works. First, give us a
                 call or text at{" "}
                 <a
                   href={`tel:${biz.phoneRaw}`}
@@ -94,24 +94,22 @@ export default function ContactClient() {
                 >
                   {biz.phone}
                 </a>
-                , or fill out the quote form below with a brief description of what you need hauled.
-                Our team typically responds within 15 minutes during business hours — no waiting
+                , or fill out the form below with a brief description of what you need done.
+                Rosa typically responds within an hour during business hours — no waiting
                 around for a callback that never comes.
               </p>
               <p>
-                Next, we provide a free, no-obligation quote based on the volume and type of items.
-                The price we quote is the price you pay — no hidden fees, no surprise charges on
-                the day of pickup. Once you approve the quote, we schedule your pickup at a time
-                that works for you. Need it gone today? Call before noon for same-day service at no
-                extra charge.
+                Next, we schedule a free on-site estimate. Derek or a crew lead will come out,
+                look at the tree, and give you an honest number on the spot. The price we quote
+                is the price you pay — no hidden fees, no surprise charges on the day of the job.
+                Most non-emergency work is scheduled within 3–7 days.
               </p>
               <p>
-                On pickup day, our crew arrives on time and handles all the heavy lifting, loading,
-                and cleanup. You do not need to move a single item — just point to what goes and
-                we take care of the rest. We sweep up when we are done and send you a photo
-                confirmation once the job is complete. The entire process, from your first call to
-                a clean space, is designed to be as fast and painless as possible. That is the{" "}
-                {biz.name} difference.{" "}
+                On job day, our crew arrives on time with the right equipment. We handle everything —
+                climbing, cutting, rigging, chipping, and cleanup. We rake the area clean and haul
+                all debris off-site. You&apos;d never know we were there. The entire process, from
+                your first call to a clean property, is designed to be as easy as possible. That is
+                the {biz.name} difference.{" "}
                 <Link href="/about" className="text-accent hover:text-accent-light transition-colors">
                   Learn about our team
                 </Link>.
@@ -214,7 +212,7 @@ export default function ContactClient() {
               <div>
                 <img
                   src="/our-junk-removal-team.jpg"
-                  alt="Professional junk removal crew — call for a free quote"
+                  alt="Professional tree service crew — call for a free quote"
                   className="w-full h-auto"
                   width={1200}
                   height={800}
@@ -225,7 +223,7 @@ export default function ContactClient() {
               {/* Google Maps Embed */}
               <div className="border border-black/[0.06] bg-warm-gray overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178840.29886498798!2d-122.7964858!3d45.5428372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950b0b7da97427%3A0x1c36b9e6f6d18591!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100759.38513556218!2d-122.13024!3d37.9101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808561007dd3865b%3A0xadd4380b741ab78c!2sWalnut%20Creek%2C%20CA!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
                   width="100%"
                   height="250"
                   style={{ border: 0 }}

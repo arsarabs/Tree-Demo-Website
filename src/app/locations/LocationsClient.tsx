@@ -22,9 +22,9 @@ export default function LocationsClient() {
       />
       <PageHero
         label="Service Area"
-        title={biz.isDemo ? `Serving ${biz.city} & Beyond` : "Junk Removal Near You"}
+        title={biz.isDemo ? `Serving ${biz.city} & Beyond` : "Tree Service Near You"}
         subtitle={biz.isDemo
-          ? `${biz.name} provides fast, reliable junk removal across ${biz.city}, ${biz.state} and the surrounding metro area. Same-day service, upfront pricing.`
+          ? `${biz.name} provides fast, reliable tree service across ${biz.city}, ${biz.state} and the surrounding metro area. Same-day service, upfront pricing.`
           : `We serve the entire ${biz.city} metro area — 10 cities, same-day service, upfront pricing. Find your city below.`
         }
       />
@@ -35,13 +35,13 @@ export default function LocationsClient() {
 
           <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed max-w-4xl mb-14 space-y-4">
             <p>
-              {biz.name} provides professional junk removal across the greater {biz.city}
+              {biz.name} provides professional tree service across the greater {biz.city}
               {" "}metropolitan area with the same fast, reliable service and
               honest upfront pricing. We handle everything from single-item furniture
               pickups to complete property cleanouts across {biz.city} and the surrounding area.
             </p>
             <p>
-              No matter where you are in the {biz.city} metro, same-day junk removal is available
+              No matter where you are in the {biz.city} metro, same-day tree service is available
               for calls placed before noon. We know these communities inside and out — the
               neighborhoods, the disposal regulations, and the local facilities for recycling and
               donation. Whether you are in a downtown condo, a lakefront home,

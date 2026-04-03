@@ -16,7 +16,7 @@ function localBusinessSchema(
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: biz.name,
-    description: `Professional junk removal services in ${location.city}, ${location.state}. Fast, affordable, and eco-friendly hauling for residential and commercial customers.`,
+    description: `Professional tree service services in ${location.city}, ${location.state}. Fast, affordable, and eco-friendly hauling for residential and commercial customers.`,
     url: `${BUSINESS.url}/locations/${location.slug}`,
     telephone: biz.phone,
     address: {
@@ -105,8 +105,8 @@ export function LocationPageClient({ location }: { location: LocationData }) {
 
       <PageHero
         label={`${location.city}, ${location.state}`}
-        title={`Junk Removal in ${location.city}`}
-        subtitle={`Same-day junk removal for homes and businesses across ${location.city}. Upfront pricing, no hidden fees.`}
+        title={`Tree Service in ${location.city}`}
+        subtitle={`Same-day tree service for homes and businesses across ${location.city}. Upfront pricing, no hidden fees.`}
       />
 
       <section id="main-content" className="bg-dark px-6 lg:px-10 py-16 sm:py-20 lg:py-28">
@@ -143,7 +143,7 @@ export function LocationPageClient({ location }: { location: LocationData }) {
           {/* ── FAQs ── */}
           <div className="mb-20">
             <h2 className="font-clash font-bold text-stone text-xl sm:text-2xl mb-8">
-              {location.city} Junk Removal FAQ
+              {location.city} Tree Service FAQ
             </h2>
             <FAQAccordion faqs={location.faqs} />
           </div>

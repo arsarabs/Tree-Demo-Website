@@ -126,7 +126,7 @@ export default function ReviewsClient() {
                 at a time through honest pricing, on-time arrivals, and crews that treat your
                 property with respect. Every review below comes from a real customer and a real
                 job. We are proud that communities
-                across the metro continue to trust us with their junk removal needs.
+                across the metro continue to trust us with their tree service needs.
               </p>
             </div>
           </section>
@@ -135,7 +135,7 @@ export default function ReviewsClient() {
           <div className="mb-16 lg:mb-20">
             <img
               src="/before-after-1.jpg"
-              alt="Before and after junk removal job — garage cleanout"
+              alt="Before and after tree service job — garage cleanout"
               className="w-full h-auto"
               width={1200}
               height={800}
@@ -184,7 +184,7 @@ export default function ReviewsClient() {
               <p className="font-satoshi text-stone-dim text-base leading-relaxed max-w-lg mx-auto mb-6">
                 Had a great experience with {biz.name}? We&apos;d love to
                 hear about it. Your review helps other {biz.city} homeowners find
-                reliable junk removal.
+                reliable tree service.
               </p>
               {/* // TODO: embed Google Reviews widget — requires Google Places API key in server-side API route only */}
               <p className="font-satoshi text-stone-dim/40 text-sm">
@@ -199,7 +199,7 @@ export default function ReviewsClient() {
               View our services &rarr;
             </Link>
             <Link href="/locations" className="text-accent hover:text-accent-light transition-colors">
-              Find junk removal near you &rarr;
+              Find tree service near you &rarr;
             </Link>
             <Link href="/about" className="text-accent hover:text-accent-light transition-colors">
               Meet the crew &rarr;

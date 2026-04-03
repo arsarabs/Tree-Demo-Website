@@ -43,7 +43,7 @@ export default function PrivacyClient() {
               <li>Phone number</li>
               <li>Email address</li>
               <li>Address or service location</li>
-              <li>Description of the junk removal service you need</li>
+              <li>Description of the tree service you need</li>
             </ul>
           </section>
 
@@ -55,7 +55,7 @@ export default function PrivacyClient() {
             <p className="mb-4">We use the information you provide solely to:</p>
             <ul className="list-disc list-inside space-y-2 text-stone-dim/80">
               <li>Respond to your inquiry or quote request</li>
-              <li>Schedule and provide junk removal services</li>
+              <li>Schedule and provide tree care services</li>
               <li>Follow up on completed jobs for quality assurance</li>
               <li>Send service-related communications (e.g., appointment confirmations)</li>
             </ul>

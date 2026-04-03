@@ -38,23 +38,23 @@ export function MeetTheOwner() {
           {/* ═══ BODY ═══ */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <h2 className="font-clash font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.88] tracking-[-0.03em] mb-10 text-stone">
-              Started with one truck.
+              One truck. One bet.
             </h2>
 
             <div className="space-y-5 mb-10">
               <p className="font-satoshi text-stone-dim text-lg leading-[1.8]">
-                {biz.name} started because {biz.isDemo ? "the owner" : BIZ.founder} was tired of companies that
-                showed up late, quoted one price, then charged another. So {biz.isDemo ? "they" : "he"}
-                bought a truck and did it {biz.isDemo ? "themselves" : "himself"}.
+                {biz.isDemo ? "The owners" : "Derek and Rosa"} started {biz.name} in 2011 after a rough windstorm
+                ripped through the Ygnacio Valley corridor and left homeowners waiting weeks for help.
+                They bet on themselves — one truck, a used chipper, and a list of 40 neighbors Rosa had personally called.
               </p>
               <p className="font-satoshi text-stone-dim/80 text-base leading-[1.8]">
-                {BIZ.yearsInBusiness} years and {biz.jobsCompleted} jobs later, it&apos;s still {biz.isDemo ? "the owner" : "him"}
-                and {biz.isDemo ? "the" : "his"} crew doing every job. No call center, no middleman.
+                {BIZ.yearsInBusiness} years and {biz.jobsCompleted} jobs later, it&apos;s still {biz.isDemo ? "the owners" : "Derek"}
+                and {biz.isDemo ? "the" : "his"} crew doing every job. No subcontractors, no call center, no middleman.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-6 mb-10">
-              {["Licensed & Insured", "Locally Owned", "Eco-Friendly Disposal"].map((item) => (
+              {["CA Licensed #1084732", "ISA Certified Arborist", "$2M Insured"].map((item) => (
                 <span
                   key={item}
                   className="font-satoshi text-stone-dim/60 text-xs uppercase tracking-[0.12em] flex items-center gap-2"

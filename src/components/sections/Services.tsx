@@ -15,11 +15,11 @@ export function Services() {
         {/* ═══ HOOK ═══ */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
           <h2 className="font-clash font-bold text-5xl sm:text-7xl lg:text-8xl leading-none tracking-[-0.03em] text-stone">
-            We haul<br />
-            <span className="text-accent">everything.</span>
+            We handle<br />
+            <span className="text-accent">every tree.</span>
           </h2>
           <p className="font-satoshi text-stone-dim/70 text-sm max-w-xs leading-relaxed lg:text-right">
-            One couch or a whole house. Here&apos;s what we pick up most.
+            One dead limb or a whole lot. Here&apos;s what we do most.
           </p>
         </div>
 

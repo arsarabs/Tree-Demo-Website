@@ -100,11 +100,12 @@ export function QuoteSection() {
                     </label>
                     <select id="quote-service" name="service" className="form-input min-h-[48px]" defaultValue="">
                       <option value="" disabled>Select a service</option>
-                      <option>Furniture &amp; Appliances</option>
-                      <option>Construction Debris</option>
-                      <option>Yard Waste</option>
-                      <option>Full Cleanout</option>
-                      <option>Commercial</option>
+                      <option>Tree Removal</option>
+                      <option>Tree Trimming &amp; Pruning</option>
+                      <option>Stump Grinding</option>
+                      <option>Emergency Storm Damage</option>
+                      <option>Lot Clearing</option>
+                      <option>Cabling &amp; Bracing</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -114,7 +115,7 @@ export function QuoteSection() {
                   <label htmlFor="quote-message" className="font-satoshi text-stone-dim/70 text-[11px] uppercase tracking-[0.15em] block mb-2">
                     Tell Us About Your Job
                   </label>
-                  <textarea id="quote-message" name="message" placeholder="What do you need hauled? Any details help us quote faster." rows={4} className="form-input resize-none" />
+                  <textarea id="quote-message" name="message" placeholder="What kind of tree work do you need? Size, species, location — any details help us quote faster." rows={4} className="form-input resize-none" />
                 </div>
 
                 <div className="flex flex-wrap items-center justify-center gap-6 mb-6 py-4 border-y border-black/[0.06]">

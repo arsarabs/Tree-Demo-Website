@@ -19,8 +19,8 @@ export function generateMetadata({
   if (!location) return {};
 
   return makeMetadata({
-    title: `${location.city} Junk Removal | Same-Day Service | ${BUSINESS.name}`,
-    description: `Professional junk removal in ${location.city}, ${location.state}. Same-day pickup, upfront pricing, and eco-friendly disposal. Serving ${location.neighborhoods}. Call ${BUSINESS.phone} for a free quote.`,
+    title: `${location.city} Tree Service | Same-Day Service | ${BUSINESS.name}`,
+    description: `Professional tree service in ${location.city}, ${location.state}. Same-day pickup, upfront pricing, and eco-friendly disposal. Serving ${location.neighborhoods}. Call ${BUSINESS.phone} for a free quote.`,
     path: `/locations/${location.slug}`,
   });
 }

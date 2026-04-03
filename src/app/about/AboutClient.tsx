@@ -11,7 +11,7 @@ const breadcrumbItems = [{ label: "About", href: "/about" }];
 export default function AboutClient() {
   const biz = usePersonalization();
 
-  const founderName = biz.isDemo ? "The Owner" : "Marcus";
+  const founderName = biz.isDemo ? "The Owner" : "Derek";
 
   const personSchema = {
     "@context": "https://schema.org",
@@ -42,7 +42,7 @@ export default function AboutClient() {
     },
     foundingDate: "2023",
     description:
-      `${biz.city}'s trusted local junk removal crew. Licensed, insured, and eco-friendly.`,
+      `${biz.city}'s trusted local tree service crew. Licensed, insured, and eco-friendly.`,
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: biz.rating,
@@ -69,8 +69,8 @@ export default function AboutClient() {
 
       <PageHero
         label="About Us"
-        title={`${biz.city}'s Local Junk Removal Crew`}
-        subtitle="One truck, one crew, one mission — make junk disappear without the hassle or the hidden fees."
+        title={`${biz.city}'s Local Tree Service Crew`}
+        subtitle="Family-owned tree care serving Contra Costa County since 2011. Licensed, insured, ISA certified."
       />
 
       <div id="main-content" className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
@@ -87,30 +87,26 @@ export default function AboutClient() {
             </h2>
             <div className="space-y-6 font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed max-w-3xl">
               <p>
-                {biz.name} started the way most good things do — out of
-                necessity. {founderName} saw a gap in {biz.city}&apos;s
-                market: most companies were either overpriced, unreliable, or
-                both. So {biz.isDemo ? "they" : "he"} bought a truck, printed some cards, and started
-                working.
+                {biz.isDemo ? founderName : "Derek"} spent over a decade climbing trees for someone
+                else&apos;s company. In 2011, after a rough windstorm ripped through the Ygnacio Valley
+                corridor and left homeowners waiting weeks for help, {biz.isDemo ? "they" : "he and Rosa"}
+                decided to bet on themselves.
               </p>
               <p>
-                That was {BUSINESS.yearsServing} years ago. Since then,
-                we&apos;ve completed {biz.jobsCompleted} jobs across the{" "}
-                {biz.city} metro area — from small pickups to
-                full property cleanouts. What started as one person
-                with a truck is now a tight-knit local crew that {biz.city} trusts.
+                They started with one truck, a chipper they bought used off Craigslist, and a
+                list of 40 neighbors Rosa had personally called. Their first year they did 94
+                jobs. By year three, they had a full crew and more referrals than they could handle.
               </p>
               <p>
-                {founderName} still answers the phone. Still shows up on jobs. And still
-                believes that service should be simple: you call, we
-                quote, we show up on time, and it&apos;s done. No games, no
-                upsells, no surprises on the invoice.
+                {BUSINESS.yearsServing} years and {biz.jobsCompleted} jobs later, {biz.name} is
+                the go-to crew for homeowners across Contra Costa County who want clean work, honest
+                pricing, and a team that actually calls back.
               </p>
             </div>
             <div className="mt-10">
               <img
                 src="/founder.jpg"
-                alt={`Founder of ${biz.name} — local junk removal crew`}
+                alt={`Founder of ${biz.name} — local tree service crew`}
                 className="w-full h-auto"
                 width={1200}
                 height={800}
@@ -130,24 +126,23 @@ export default function AboutClient() {
               </h2>
               <div className="space-y-5 font-satoshi text-stone-dim text-base leading-relaxed max-w-3xl">
                 <p>
-                  Every person who shows up at your door works for {biz.name}{" "}
+                  Every person who shows up at your property works for {biz.name}{" "}
                   directly. We don&apos;t subcontract, we don&apos;t use day
                   labor, and we don&apos;t send strangers to your home. Our crew
-                  is trained, background-checked, and knows how to handle
-                  everything from a 400-pound piano to a garage packed floor to
-                  ceiling.
+                  is trained by Derek personally and knows how to handle
+                  everything from a dead limb over a power line to a full lot clearing.
                 </p>
                 <p>
-                  We treat your property with respect — we lay down floor
-                  protection, we don&apos;t ding your walls, and we sweep up when
+                  We treat your property with respect — we protect your landscaping,
+                  we don&apos;t tear up your lawn, and we rake and sweep when
                   the job is done. That&apos;s not a sales pitch. That&apos;s
-                  just how we operate.
+                  just how we were raised.
                 </p>
               </div>
               <div className="mt-8">
                 <img
                   src="/our-junk-removal-team.jpg"
-                  alt="Professional junk removal crew ready for service"
+                  alt="Professional tree service crew ready for service"
                   className="w-full h-auto"
                   width={1200}
                   height={800}
@@ -173,10 +168,9 @@ export default function AboutClient() {
                 </div>
                 <div className="space-y-4 font-satoshi text-stone-dim text-base leading-relaxed">
                   <p>
-                    We carry full general liability insurance and hold all
-                    required business licenses for the {biz.city} metro area. That
-                    means you&apos;re protected from the moment we walk in the
-                    door to the moment we drive away.
+                    We hold California Contractor License #1084732 (C-61/D-49),
+                    carry $2 million in general liability insurance, and have full
+                    workers&apos; compensation coverage for every member of our crew.
                   </p>
                   <p>
                     Every job is covered. Every crew member is insured. No
@@ -193,19 +187,19 @@ export default function AboutClient() {
                     </span>
                   </div>
                   <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight">
-                    Eco-Friendly Disposal
+                    ISA Certified Arborist
                   </h2>
                 </div>
                 <div className="space-y-4 font-satoshi text-stone-dim text-base leading-relaxed">
                   <p>
-                    Not everything we haul belongs in a landfill. We sort every
-                    load and divert as much as possible to recycling centers,
-                    composting facilities, and local charities.
+                    Derek is an ISA Certified Arborist with over 25 years of
+                    hands-on tree care experience. He personally assesses every
+                    job and oversees every complex removal.
                   </p>
                   <p>
-                    Usable furniture gets donated. Metals get recycled. Yard
-                    waste goes to composting. We do the extra work so your junk
-                    has the smallest footprint possible.
+                    Proper pruning standards. No topping. No lion-tailing.
+                    Just clean, correct cuts that protect your trees and your
+                    property.
                   </p>
                 </div>
               </div>
@@ -246,7 +240,7 @@ export default function AboutClient() {
           {/* ── CTA ── */}
           <section className="text-center">
             <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
-              Ready to Get Rid of the Junk?
+              Ready to Take Care of Your Trees?
             </h2>
             <p className="font-satoshi text-stone-dim text-base mb-8 max-w-xl mx-auto">
               We serve {LOCATIONS.length} cities across the {biz.city} metro.

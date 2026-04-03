@@ -56,14 +56,14 @@ export function Hero() {
 
             {/* Headline */}
             <h1 className="text-balance font-clash font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-[-0.03em]">
-              <span className="text-accent">Your junk.</span>{" "}
-              <span className="text-stone">Gone today.</span>
+              <span className="text-stone">{biz.city}&apos;s</span>{" "}
+              <span className="text-accent">tree crew.</span>
             </h1>
 
             {/* Description */}
             <p className="mx-auto mt-8 max-w-xl text-pretty font-satoshi text-stone-dim text-lg leading-relaxed">
-              Same-day junk removal in {biz.city}. We tell you the price before
-              we start, and that&apos;s what you pay. No hidden fees, no surprises.
+              We remove, trim, and grind so you don&apos;t have to worry about it.
+              Family-owned. Local crew. No subcontractors. Ever.
             </p>
 
             {/* CTAs */}

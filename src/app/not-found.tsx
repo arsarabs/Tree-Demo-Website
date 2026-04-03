@@ -4,7 +4,7 @@ import { BUSINESS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Page Not Found | ${BUSINESS.name}`,
-  description: `The page you're looking for doesn't exist. Contact ${BUSINESS.name} for junk removal in ${BUSINESS.city} ${BUSINESS.state}.`,
+  description: `The page you're looking for doesn't exist. Contact ${BUSINESS.name} for tree service in ${BUSINESS.city} ${BUSINESS.state}.`,
 };
 
 export default function NotFound() {
@@ -22,7 +22,7 @@ export default function NotFound() {
           Let&apos;s get you back on track.
         </p>
         <p className="font-satoshi text-stone-dim/60 text-sm mb-10">
-          Need junk removed? Call us at{" "}
+          Need tree work done? Call us at{" "}
           <a
             href={`tel:${BUSINESS.phoneRaw}`}
             className="text-accent hover:text-accent-light transition-colors font-medium"

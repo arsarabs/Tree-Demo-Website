@@ -8,7 +8,7 @@ export function CrewPhoto() {
         src="/our-junk-removal-team-mobile.webp"
         srcSet="/our-junk-removal-team-mobile.webp 800w, /our-junk-removal-team.webp 1200w"
         sizes="100vw"
-        alt="Junk removal crew in front of truck"
+        alt="Highland Tree Service crew with truck in Walnut Creek CA"
         width={1200}
         height={800}
         className="w-full h-auto block"
@@ -22,12 +22,12 @@ export function CrewPhoto() {
           The Team
         </span>
         <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold leading-none text-white">
-          Our crew. Our trucks.
+          Our crew. Your trees.
         </h2>
         {/* ═══ BODY ═══ */}
         <p className="font-satoshi mt-4 text-lg max-w-lg text-white/70">
-          We don&apos;t hire subcontractors. The people on this page are the
-          same people who show up at your door.
+          We never use subcontractors. The people on this page are the
+          same people who show up at your property.
         </p>
       </div>
     </section>

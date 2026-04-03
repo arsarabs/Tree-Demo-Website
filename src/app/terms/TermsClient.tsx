@@ -32,10 +32,10 @@ export default function TermsClient() {
               Services
             </h2>
             <p>
-              {biz.name} provides junk removal and hauling services in the {biz.city} metropolitan
-              area. All services are subject to availability and our assessment of the job scope.
-              We reserve the right to decline any job that involves hazardous materials, illegal
-              items, or unsafe working conditions.
+              {biz.name} provides tree removal, trimming, stump grinding, and related services
+              in {biz.city} and the Contra Costa County metropolitan area. All services are subject
+              to availability and our assessment of the job scope. We reserve the right to decline
+              any job that involves unsafe working conditions or trees requiring utility company coordination.
             </p>
           </section>
 

@@ -18,26 +18,26 @@ export default function ServicesClient() {
     mainEntity: [
       {
         "@type": "Question",
-        name: `What junk removal services does ${biz.name} offer?`,
+        name: `What tree services does ${biz.name} offer?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `${biz.name} offers six core services: Furniture & Appliance Removal, Construction Debris Removal, Yard Waste Removal, Full Property Cleanouts, Commercial Junk Removal, and Same-Day Junk Removal across ${biz.city} ${biz.state} and the surrounding metro area.`,
+          text: `${biz.name} offers six core services: Tree Removal, Tree Trimming & Pruning, Stump Grinding, Emergency Storm Damage, Lot Clearing, and Cabling & Bracing across ${biz.city} ${biz.state} and all of Contra Costa County.`,
         },
       },
       {
         "@type": "Question",
-        name: `Does ${biz.name} offer same-day junk removal?`,
+        name: `Does ${biz.name} offer emergency tree service?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Call or text before noon and we will have a crew at your location by end of day. No rush fees or premium charges for same-day service.",
+          text: "Yes. We respond to emergency storm damage calls 24/7, including nights, weekends, and holidays. Call (925) 847-3091 any time.",
         },
       },
       {
         "@type": "Question",
-        name: `How much does junk removal cost in ${biz.city}?`,
+        name: `How much does tree removal cost in ${biz.city}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Pricing depends on the volume and type of items. Single-item pickups typically run $75-$150, and a full truckload is usually $250-$500. We provide an exact upfront quote before any work begins.",
+          text: "Pricing depends on the size, species, and location of the tree. Small trees run $350-$800. Large oaks near structures can be $2,500-$5,000+. We provide a free on-site estimate before any work begins.",
         },
       },
     ],
@@ -61,8 +61,8 @@ export default function ServicesClient() {
       <main id="main-content" className="bg-dark min-h-screen">
         <PageHero
           label="Our Services"
-          title="What We Haul"
-          subtitle={`From a single couch to an entire property — ${biz.name} handles it all across ${biz.city} ${biz.state} and the surrounding metro area.`}
+          title="What We Do"
+          subtitle={`From a single dead limb to a full lot clearing — ${biz.name} handles it all across ${biz.city} and all of Contra Costa County.`}
         />
 
         {/* Intro Content */}
@@ -70,32 +70,30 @@ export default function ServicesClient() {
           <div className="max-w-4xl mx-auto">
             <Breadcrumb items={breadcrumbItems} />
             <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
-              {biz.city}&rsquo;s Full-Service Junk Removal Team
+              {biz.city}&rsquo;s Full-Service Tree Care Team
             </h2>
             <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
               <p>
-                {biz.name} provides comprehensive junk removal services across {biz.city}, {biz.state}
-                {" "}and the entire metro area. Whether you need a single piece of furniture hauled away
-                or an entire property cleared from top to bottom, our experienced crew handles every
-                job with speed, professionalism, and transparent pricing. We have completed over{" "}
+                {biz.name} provides professional tree care across {biz.city}, {biz.state}
+                {" "}and all of Contra Costa County. Whether you need a single dead limb removed
+                or an entire lot cleared, our experienced crew handles every
+                job with precision, professionalism, and transparent pricing. We have completed over{" "}
                 {biz.jobsCompleted} jobs and maintain a {biz.rating}-star rating from{" "}
                 {biz.reviewCount}+ verified customer reviews.
               </p>
               <p>
-                {biz.city} homeowners and businesses trust {biz.name} because we do things
-                differently. We offer same-day junk removal for calls placed before noon — no
-                waiting days for a scheduled appointment. Every job starts with a free, upfront
-                quote so you know exactly what you will pay before we lift a single item. There are
-                no hidden fees, no surprise charges, and no bait-and-switch pricing. Our crew
-                handles all the heavy lifting, loading, and cleanup so you do not have to touch a
-                thing.
+                Contra Costa County homeowners trust {biz.name} because we do things
+                differently. Every job starts with a free, on-site estimate so you know exactly what
+                you will pay before we touch a single branch. There are no hidden fees, no surprise
+                charges, and no bait-and-switch pricing. Our crew handles everything — climbing,
+                rigging, cutting, chipping, and cleanup — so you do not have to worry about a thing.
               </p>
               <p>
-                We are also committed to eco-friendly disposal practices. Usable items are donated
-                to local charities, recyclable materials are sorted and sent to proper
-                facilities, and we dispose of everything else responsibly. From furniture and
-                appliances to construction debris, yard waste, and commercial junk, {biz.name}{" "}
-                is the only call you need to make. Available Monday through Saturday, 7am to 7pm.{" "}
+                Derek is an ISA Certified Arborist with over 25 years of experience, and he
+                personally oversees every complex job. We never use subcontractors — every crew member
+                is trained in-house. From tree removal and trimming to stump grinding, storm damage,
+                and lot clearing, {biz.name}{" "}
+                is the only call you need to make. Available Monday through Saturday, 7am to 6pm.{" "}
                 <Link href="/about" className="text-accent hover:text-accent-light transition-colors">
                   Meet the team behind every job
                 </Link>.
@@ -118,7 +116,7 @@ export default function ServicesClient() {
             <div className="mb-16">
               <img
                 src="/our-junk-removal-team.jpg"
-                alt={`Professional junk removal crew ready for service in ${biz.city} ${biz.state}`}
+                alt={`Professional tree service crew ready for service in ${biz.city} ${biz.state}`}
                 className="w-full h-auto"
                 width={1200}
                 height={800}

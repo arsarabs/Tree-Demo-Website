@@ -90,11 +90,12 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
                 </label>
                 <select id="form-service" name="service" className="form-input" defaultValue="">
                   <option value="" disabled>Select a service</option>
-                  <option>Furniture & Appliances</option>
-                  <option>Construction Debris</option>
-                  <option>Yard Waste</option>
-                  <option>Full Cleanout</option>
-                  <option>Commercial</option>
+                  <option>Tree Removal</option>
+                  <option>Tree Trimming & Pruning</option>
+                  <option>Stump Grinding</option>
+                  <option>Emergency Storm Damage</option>
+                  <option>Lot Clearing</option>
+                  <option>Cabling & Bracing</option>
                   <option>Other</option>
                 </select>
               </div>
@@ -108,7 +109,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
             <textarea
               id="form-message"
               name="message"
-              placeholder="What do you need hauled? Any details help us quote faster."
+              placeholder="What kind of tree work do you need? Any details help us quote faster."
               rows={compact ? 3 : 4}
               className="form-input resize-none"
             />
