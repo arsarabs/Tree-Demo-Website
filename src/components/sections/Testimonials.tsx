@@ -29,7 +29,6 @@ export function Testimonials() {
   const biz = usePersonalization();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   const scrollToIndex = useCallback((index: number) => {
     const container = scrollRef.current;
@@ -43,18 +42,6 @@ export function Testimonials() {
       setActiveIndex(index);
     }
   }, []);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => {
-        const next = (prev + 1) % allTestimonials.length;
-        scrollToIndex(next);
-        return next;
-      });
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isPaused, scrollToIndex]);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -85,8 +72,6 @@ export function Testimonials() {
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
         >
           {allTestimonials.map((t, i) => (
             <div
