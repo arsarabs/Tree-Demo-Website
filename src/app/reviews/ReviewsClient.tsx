@@ -116,17 +116,13 @@ export default function ReviewsClient() {
           {/* ── Intro / Commitment Section ── */}
           <section className="mb-16 lg:mb-20 max-w-3xl">
             <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
-              Our Commitment to Every Customer
+              What People Say
             </h2>
             <div className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
               <p>
-                At {biz.name}, customer satisfaction is not just a goal — it is the standard
-                we hold ourselves to on every single job. With over {biz.jobsCompleted} jobs
-                completed across the {biz.city} metro area, we have built our reputation one pickup
-                at a time through honest pricing, on-time arrivals, and crews that treat your
-                property with respect. Every review below comes from a real customer and a real
-                job. We are proud that communities
-                across the metro continue to trust us with their tree service needs.
+                {biz.jobsCompleted} jobs across {biz.city} and Contra Costa County since 2011.
+                The reviews below are from actual customers on actual jobs. About 60% of new
+                clients come from referrals, which tells you more than any rating number can.
               </p>
             </div>
           </section>
