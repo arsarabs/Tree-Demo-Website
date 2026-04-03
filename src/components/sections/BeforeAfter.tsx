@@ -27,7 +27,7 @@ export function BeforeAfter() {
             {BIZ.beforeAfter.map((photo, i) => (
               <div
                 key={photo.src}
-                className={`overflow-hidden border border-white/[0.10] group hover:border-accent/20 transition-colors duration-500 cursor-pointer ${
+                className={`overflow-hidden border border-black/[0.10] group hover:border-accent/20 transition-colors duration-500 cursor-pointer ${
                   i === 0 ? "lg:col-span-7" : "lg:col-span-5"
                 }`}
                 onClick={() => setLightboxSrc(photo.src)}

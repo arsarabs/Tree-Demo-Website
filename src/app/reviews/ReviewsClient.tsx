@@ -28,7 +28,7 @@ function Stars({ count }: { count: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          className={`w-4 h-4 ${i < count ? "text-accent" : "text-white/10"}`}
+          className={`w-4 h-4 ${i < count ? "text-accent" : "text-black/10"}`}
           fill="currentColor"
           viewBox="0 0 20 20"
           aria-hidden="true"
@@ -96,7 +96,7 @@ export default function ReviewsClient() {
 
           {/* ── Aggregate Rating Summary ── */}
           <section className="mb-16 lg:mb-20 text-center">
-            <div className="border border-white/[0.06] bg-warm-gray p-8 lg:p-12 inline-block w-full max-w-md mx-auto">
+            <div className="border border-black/[0.06] bg-warm-gray p-8 lg:p-12 inline-block w-full max-w-md mx-auto">
               <p className="font-clash font-bold text-accent text-5xl sm:text-6xl mb-2">
                 {biz.rating}
               </p>
@@ -156,13 +156,13 @@ export default function ReviewsClient() {
               {testimonials.map((review) => (
                 <div
                   key={review.name}
-                  className="border border-white/[0.06] bg-warm-gray p-6 lg:p-8"
+                  className="border border-black/[0.06] bg-warm-gray p-6 lg:p-8"
                 >
                   <Stars count={review.rating} />
                   <p className="font-satoshi text-stone text-base leading-relaxed mt-4 mb-6">
                     &ldquo;{review.text}&rdquo;
                   </p>
-                  <div className="border-t border-white/[0.06] pt-4">
+                  <div className="border-t border-black/[0.06] pt-4">
                     <p className="font-clash font-bold text-stone text-sm">
                       {review.name}
                     </p>

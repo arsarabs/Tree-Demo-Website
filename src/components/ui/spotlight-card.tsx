@@ -31,7 +31,7 @@ export const SpotlightCard = ({
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
       className={cn(
-        "relative overflow-hidden rounded-xl border border-white/[0.08] bg-elevated text-stone transition-colors hover:border-accent/30",
+        "relative overflow-hidden rounded-xl border border-black/[0.08] bg-elevated text-stone transition-colors hover:border-accent/30",
         className
       )}
       {...props}

@@ -15,7 +15,7 @@ export function Process() {
           {BIZ.process.map((step) => (
             <div
               key={step.num}
-              className="group grid grid-cols-12 items-baseline border-b border-white/[0.08] last:border-b-0 py-8 lg:py-10"
+              className="group grid grid-cols-12 items-baseline border-b border-black/[0.08] last:border-b-0 py-8 lg:py-10"
             >
               <div className="col-span-2 sm:col-span-1">
                 <span className="font-clash font-bold text-accent/[0.12] text-[4rem] sm:text-[5rem] leading-none group-hover:text-accent/[0.25] transition-colors duration-700">

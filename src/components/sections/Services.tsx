@@ -24,7 +24,7 @@ export function Services() {
         </div>
 
         {/* ═══ BODY ═══ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.06]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.06]">
           {items.map((service, i) => {
             const serviceData = SERVICES[i];
             const isAnchor = service.anchor;

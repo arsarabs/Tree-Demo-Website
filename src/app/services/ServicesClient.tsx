@@ -66,7 +66,7 @@ export default function ServicesClient() {
         />
 
         {/* Intro Content */}
-        <section className="bg-dark px-6 lg:px-10 py-16 lg:py-20 border-b border-white/[0.06]">
+        <section className="bg-dark px-6 lg:px-10 py-16 lg:py-20 border-b border-black/[0.06]">
           <div className="max-w-4xl mx-auto">
             <Breadcrumb items={breadcrumbItems} />
             <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
@@ -131,7 +131,7 @@ export default function ServicesClient() {
         {/* Services Grid */}
         <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.02]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.02]">
               {SERVICES.map((service, i) => (
                 <ServiceCard
                   key={service.slug}
@@ -146,7 +146,7 @@ export default function ServicesClient() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="bg-dark px-6 lg:px-10 py-20 lg:py-28 border-t border-white/[0.06]">
+        <section className="bg-dark px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
           <div className="max-w-3xl mx-auto text-center">
             <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
               Ready to get started?

@@ -14,7 +14,7 @@ export default function NotFound() {
         <p className="font-satoshi text-sm uppercase tracking-[0.25em] text-accent/60 mb-4">
           404
         </p>
-        <h1 className="font-clash text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 className="font-clash text-4xl md:text-5xl font-bold text-stone mb-4">
           Page Not Found
         </h1>
         <p className="font-satoshi text-stone-dim leading-relaxed mb-6">

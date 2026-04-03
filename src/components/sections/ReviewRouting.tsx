@@ -8,7 +8,7 @@ export function ReviewRouting() {
   return (
     <SectionWrapper reveal="scale" className="bg-dark py-14 sm:py-18 lg:py-24 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-elevated border border-white/[0.10] p-8 sm:p-12 lg:p-16">
+        <div className="bg-elevated border border-black/[0.10] p-8 sm:p-12 lg:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* ═══ HOOK ═══ */}
             <div className="lg:col-span-7">
@@ -31,7 +31,7 @@ export function ReviewRouting() {
               </div>
             </div>
             <div className="lg:col-span-5 flex justify-center">
-              <div className="bg-warm-gray border border-white/[0.10] p-8 text-center">
+              <div className="bg-warm-gray border border-black/[0.10] p-8 text-center">
                 <div className="w-36 h-36 bg-white mx-auto mb-4 flex items-center justify-center">
                   <div className="w-28 h-28 bg-stone/10 flex items-center justify-center">
                     <span className="font-satoshi text-stone/40 text-xs uppercase tracking-widest">QR Code</span>

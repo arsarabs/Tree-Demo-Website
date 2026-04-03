@@ -58,7 +58,7 @@ export function QuoteSection() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="bg-elevated border border-white/[0.10] p-8 lg:p-12"
+                className="bg-elevated border border-black/[0.10] p-8 lg:p-12"
               >
                 <div className="absolute -left-[9999px]" aria-hidden="true">
                   <label htmlFor="hp-website">Website</label>
@@ -117,7 +117,7 @@ export function QuoteSection() {
                   <textarea id="quote-message" name="message" placeholder="What do you need hauled? Any details help us quote faster." rows={4} className="form-input resize-none" />
                 </div>
 
-                <div className="flex flex-wrap items-center justify-center gap-6 mb-6 py-4 border-y border-white/[0.06]">
+                <div className="flex flex-wrap items-center justify-center gap-6 mb-6 py-4 border-y border-black/[0.06]">
                   {["Licensed & Insured", "No Obligation", "Response in 15 min"].map((badge) => (
                     <div key={badge} className="flex items-center gap-2">
                       <span className="w-1 h-1 rounded-full bg-accent/60" />
@@ -145,7 +145,7 @@ export function QuoteSection() {
             ) : (
               <div className="bg-dark border border-accent/20 p-12 lg:p-16 text-center animate-fadeInUp">
                 <div className="w-16 h-16 border border-accent/30 flex items-center justify-center mx-auto mb-8">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF4F00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B6B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>

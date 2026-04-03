@@ -37,7 +37,7 @@ const col3 = [allTestimonials[1], allTestimonials[4], allTestimonials[2], allTes
 
 function TestimonialCard({ quote, name, detail, city, state }: { quote: string; name: string; detail: string; city: string; state: string }) {
   return (
-    <div className="p-8 border border-white/[0.08] bg-elevated hover:border-accent/20 transition-colors duration-500 mb-4">
+    <div className="p-8 border border-black/[0.08] bg-elevated hover:border-accent/20 transition-colors duration-500 mb-4">
       <p className="font-satoshi text-stone text-base leading-relaxed mb-6">
         &ldquo;{quote}&rdquo;
       </p>

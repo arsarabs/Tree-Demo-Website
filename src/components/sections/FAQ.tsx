@@ -30,7 +30,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
     <motion.div
       layout
       className={cn(
-        "border border-white/[0.06] transition-colors duration-300",
+        "border border-black/[0.06] transition-colors duration-300",
         isOpen ? "bg-warm-gray/50 border-accent/10" : "bg-transparent"
       )}
     >
@@ -118,7 +118,7 @@ export function FAQ() {
                     "relative overflow-hidden whitespace-nowrap rounded-sm border px-3 py-1.5 text-xs font-medium font-satoshi uppercase tracking-[0.1em] transition-colors duration-300",
                     selectedCategory === key
                       ? "border-accent text-white"
-                      : "border-white/[0.08] text-stone-dim/60 hover:text-stone hover:border-white/[0.15]"
+                      : "border-black/[0.08] text-stone-dim/60 hover:text-stone hover:border-black/[0.15]"
                   )}
                 >
                   <span className="relative z-10">{label}</span>

@@ -14,7 +14,7 @@ export function PageHero({
   ctaHref?: string;
 }) {
   return (
-    <section className="bg-dark pt-28 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10 border-b border-white/[0.06]">
+    <section className="bg-dark pt-28 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10 border-b border-black/[0.06]">
       <div className="max-w-7xl mx-auto">
         <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
           {label}

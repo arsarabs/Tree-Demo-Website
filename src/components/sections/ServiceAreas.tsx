@@ -12,7 +12,7 @@ export function ServiceAreas() {
     ? defaultAreas
     : [`${biz.city}`, `North ${biz.city}`, `South ${biz.city}`, `East ${biz.city}`, `West ${biz.city}`, `Downtown ${biz.city}`, `Greater ${biz.city}`, `${biz.city} Metro`];
   return (
-    <section className="bg-dark border-b border-white/[0.06]">
+    <section className="bg-dark border-b border-black/[0.06]">
       <div className="marquee-fade">
         <Marquee className="py-5">
           {areas.map((area) => (

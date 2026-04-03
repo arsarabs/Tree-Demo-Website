@@ -40,16 +40,16 @@
 @tailwind utilities;
 
 :root {
-  --bg-dark: #111110;
-  --bg-warm-gray: #232320;
-  --bg-elevated: #2C2C28;
-  --accent: #FF4F00;
-  --accent-light: #FF6B2B;
-  --accent-dim: rgba(255, 79, 0, 0.08);
-  --text-primary: #F0EDE6;
-  --text-muted: #9A9A90;
-  --border-subtle: rgba(255, 79, 0, 0.15);
-  --border-dark: rgba(255, 255, 255, 0.10);
+  --bg-dark: #FAFAF7;
+  --bg-warm-gray: #F0EDE6;
+  --bg-elevated: #E8E5DD;
+  --accent: #1B6B3A;
+  --accent-light: #25884A;
+  --accent-dim: rgba(27, 107, 58, 0.08);
+  --text-primary: #1A1A18;
+  --text-muted: #5A5A52;
+  --border-subtle: rgba(27, 107, 58, 0.15);
+  --border-dark: rgba(0, 0, 0, 0.10);
 }
 
 html {
@@ -71,7 +71,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Orange selection */
+/* Green selection */
 ::selection {
   background: var(--accent);
   color: #FFFFFF;
@@ -82,7 +82,7 @@ body {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: var(--bg-warm-gray);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--accent);
@@ -98,11 +98,11 @@ body {
   display: none;
 }
 
-/* Form input styles — dark theme */
+/* Form input styles — light theme */
 .form-input {
-  background: #1A1A18;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #F0EDE6;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #1A1A18;
   font-family: "Satoshi", sans-serif;
   font-size: 15px;
   padding: 14px 18px;
@@ -111,15 +111,15 @@ body {
   outline: none;
 }
 .form-input:focus {
-  border-color: rgba(255, 79, 0, 0.5);
-  background: rgba(255, 79, 0, 0.04);
+  border-color: rgba(27, 107, 58, 0.5);
+  background: rgba(27, 107, 58, 0.04);
 }
 .form-input::placeholder {
-  color: rgba(138, 138, 128, 0.5);
+  color: rgba(90, 90, 82, 0.5);
 }
 .form-input option {
-  background: #1A1A18;
-  color: #F0EDE6;
+  background: #FFFFFF;
+  color: #1A1A18;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -138,7 +138,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(27,107,58,0.15) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -155,7 +155,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(255, 79, 0, 0.3);
+  border: 1px solid rgba(27, 107, 58, 0.3);
   pointer-events: none;
   transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -271,7 +271,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 79, 0, 0.06) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(27, 107, 58, 0.06) 0%, transparent 50%);
   transform: translateX(-100%);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }

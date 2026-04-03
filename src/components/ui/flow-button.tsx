@@ -23,7 +23,7 @@ export function FlowButton({ text = "Get My Free Quote", href, className, onClic
     >
       {/* Left arrow — slides in from left on hover */}
       <ArrowRight
-        className="absolute w-4 h-4 left-[-25%] stroke-white fill-none z-[9] group-hover:left-4 transition-all duration-[800ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+        className="absolute w-4 h-4 left-[-25%] stroke-accent fill-none z-[9] group-hover:left-4 transition-all duration-[800ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"
       />
 
       {/* Text */}
@@ -36,7 +36,7 @@ export function FlowButton({ text = "Get My Free Quote", href, className, onClic
 
       {/* Right arrow — slides out to right on hover */}
       <ArrowRight
-        className="absolute w-4 h-4 right-4 stroke-white fill-none z-[9] group-hover:right-[-25%] transition-all duration-[800ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+        className="absolute w-4 h-4 right-4 stroke-white fill-none z-[9] group-hover:stroke-accent group-hover:right-[-25%] transition-all duration-[800ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"
       />
     </Component>
   );

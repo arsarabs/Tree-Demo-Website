@@ -1,10 +1,10 @@
 {
-  "name": "The Junk Moose",
-  "short_name": "Junk Moose",
+  "name": "Summit Tree Co.",
+  "short_name": "Summit Tree",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#080808",
-  "theme_color": "#C8A44E",
+  "background_color": "#FAFAF7",
+  "theme_color": "#1B6B3A",
   "icons": [
     { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
   ]

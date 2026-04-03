@@ -23,7 +23,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       {!submitted ? (
         <form
           onSubmit={handleSubmit}
-          className={`bg-dark border border-white/[0.06] ${compact ? "p-6" : "p-8 lg:p-12"}`}
+          className={`bg-dark border border-black/[0.06] ${compact ? "p-6" : "p-8 lg:p-12"}`}
         >
           {/* Honeypot — hidden from real users, catches bots */}
           <div className="absolute -left-[9999px]" aria-hidden="true">
@@ -115,7 +115,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
           </div>
 
           {!compact && (
-            <div className="flex flex-wrap items-center justify-center gap-6 mb-6 py-4 border-y border-white/[0.06]">
+            <div className="flex flex-wrap items-center justify-center gap-6 mb-6 py-4 border-y border-black/[0.06]">
               {[
                 { icon: "\u2713", text: "Licensed & Insured" },
                 { icon: "\u2713", text: "No Obligation" },
