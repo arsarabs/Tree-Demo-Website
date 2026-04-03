@@ -6,10 +6,12 @@ import { SERVICES, BUSINESS, type ServiceData } from "@/lib/data";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Breadcrumb, breadcrumbSchema } from "@/components/Breadcrumb";
+import { Trees, Scissors, CircleDot, Zap, LandPlot, Link2 } from "lucide-react";
+
+const serviceIcons = [Trees, Scissors, CircleDot, Zap, LandPlot, Link2];
 
 export function ServicePageClient({ service }: { service: ServiceData }) {
   const biz = usePersonalization();
-
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug);
 
   const crumbs = [
@@ -44,10 +46,7 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
     mainEntity: service.faqs.map((faq) => ({
       "@type": "Question",
       name: faq.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.a,
-      },
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
     })),
   };
 
@@ -56,157 +55,158 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
   return (
     <main id="main-content" className="bg-dark min-h-screen">
       {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
-      {/* Hero */}
-      <section className="bg-dark pt-28 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10 border-b border-black/[0.06]">
+      {/* ── Compact header ── */}
+      <section className="bg-warm-gray pt-28 pb-10 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           <Breadcrumb items={crumbs} />
-
-          <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
-            {service.shortName}
-          </p>
-          <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-[64px] leading-[0.92] tracking-tight mb-6">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl leading-[1] tracking-[-0.02em] mb-3">
             <span className="text-stone">{service.name}</span>{" "}
-            <span className="text-accent">in {biz.city}&nbsp;{biz.state}</span>
+            <span className="text-accent italic">in {biz.city}</span>
           </h1>
-          <p className="font-sans text-stone-dim text-lg leading-relaxed max-w-2xl mb-8">
+          <p className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed max-w-2xl">
             {service.description}
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
-          >
-            Get a Free Quote
-          </Link>
         </div>
       </section>
 
-      {/* Long description + Quote form */}
-      <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-          <div className="lg:col-span-3">
-            <h2 className="font-serif font-bold text-stone text-2xl sm:text-3xl mb-8">
-              About This Service
-            </h2>
-            <p className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed">
-              {service.longDescription}{" "}
-              <Link href="/about" className="text-accent hover:text-accent-light transition-colors">
-                Learn about our crew
-              </Link> and why {biz.city} trusts us to get the job done right.
-            </p>
+      {/* ── Horizontal service nav ── */}
+      <div className="bg-dark border-b border-black/[0.06] sticky top-[72px] z-30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="flex gap-1 overflow-x-auto hide-scrollbar py-3">
+            {SERVICES.map((s, i) => {
+              const Icon = serviceIcons[i] || Trees;
+              const isActive = s.slug === service.slug;
+              return (
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-sans font-medium whitespace-nowrap transition-colors duration-200 ${
+                    isActive
+                      ? "bg-accent text-white"
+                      : "text-stone-dim hover:text-accent hover:bg-accent/5"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" strokeWidth={1.5} />
+                  {s.shortName}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
-            {/* Link to locations */}
-            <div className="mt-10 pt-8 border-t border-black/[0.06]">
-              <p className="font-sans text-stone-dim/60 text-sm mb-3">
-                We offer {service.name.toLowerCase()} across the {biz.city} metro area.
-              </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
+      {/* ── Main content: sidebar layout ── */}
+      <section className="px-6 lg:px-10 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          {/* Left: content */}
+          <div className="lg:col-span-2">
+            {/* Description */}
+            <div className="mb-16">
+              <h2 className="font-serif text-2xl sm:text-3xl text-stone mb-6">
+                About This Service
+              </h2>
+              <div className="font-sans text-stone-dim text-base sm:text-lg leading-[1.7] space-y-4">
+                <p>
+                  {service.longDescription}{" "}
+                  <Link href="/about" className="text-accent hover:text-accent-light transition-colors">
+                    Learn about our crew
+                  </Link> and why {biz.city} trusts us to get the job done right.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
                 <Link
                   href="/locations"
                   className="font-sans text-accent text-sm hover:text-accent-light transition-colors inline-flex items-center gap-2"
                 >
-                  View all service areas
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  View all service areas &rarr;
                 </Link>
                 <Link
                   href="/reviews"
                   className="font-sans text-accent text-sm hover:text-accent-light transition-colors inline-flex items-center gap-2"
                 >
-                  Read customer reviews
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  Read customer reviews &rarr;
                 </Link>
               </div>
             </div>
+
+            {/* FAQ */}
+            <div>
+              <h2 className="font-serif text-2xl sm:text-3xl text-stone mb-8">
+                {service.shortName} FAQ
+              </h2>
+              <FAQAccordion faqs={service.faqs} />
+            </div>
           </div>
 
-          <div className="lg:col-span-2">
-            <div className="lg:sticky lg:top-28">
-              <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
-                Free estimate
-              </p>
-              <h3 className="font-serif font-bold text-stone text-xl mb-6">
-                Get Your Quote
-              </h3>
-              <QuoteForm compact />
+          {/* Right: sticky sidebar */}
+          <div className="lg:col-span-1">
+            <div className="lg:sticky lg:top-32 space-y-8">
+              {/* Quote form */}
+              <div>
+                <h3 className="font-serif text-xl text-stone mb-4">
+                  Get Your Quote
+                </h3>
+                <QuoteForm compact />
+              </div>
+
+              {/* Quick stats */}
+              <div className="bg-warm-gray rounded-2xl p-6 border border-black/[0.06]">
+                <h4 className="font-sans text-stone-dim text-xs uppercase tracking-[0.15em] mb-4">Why Highland</h4>
+                <div className="space-y-4">
+                  {[
+                    { value: biz.jobsCompleted, label: "Jobs Completed" },
+                    { value: `${biz.rating} Stars`, label: `${biz.reviewCount} Google Reviews` },
+                    { value: "14 Years", label: "Serving Contra Costa County" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="flex items-baseline justify-between">
+                      <span className="font-serif text-accent text-lg">{stat.value}</span>
+                      <span className="font-sans text-stone-dim/50 text-xs">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ section */}
-      <section className="bg-dark px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
-        <div className="max-w-3xl mx-auto">
-          <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
-            Common questions
-          </p>
-          <h2 className="font-serif font-bold text-stone text-2xl sm:text-3xl mb-12">
-            {service.shortName} FAQ
-          </h2>
-          <FAQAccordion faqs={service.faqs} />
-        </div>
-      </section>
-
-      {/* Other Services */}
-      <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
+      {/* ── Other Services ── */}
+      <section className="bg-warm-gray px-6 lg:px-10 py-16 lg:py-24 border-t border-black/[0.06]">
         <div className="max-w-7xl mx-auto">
-          <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
-            More from {biz.name}
-          </p>
-          <h2 className="font-serif font-bold text-stone text-2xl sm:text-3xl mb-12">
+          <h2 className="font-serif text-2xl sm:text-3xl text-stone mb-10">
             Other Services
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.02]">
-            {otherServices.map((s, i) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="bg-dark p-8 lg:p-10 group hover:bg-warm-gray transition-all duration-500 relative overflow-hidden block border border-black/[0.06]"
-              >
-                <div className="absolute top-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/30 transition-colors duration-500" />
-                <div className="flex items-start justify-between mb-6">
-                  <span className="font-serif font-bold text-accent/15 text-xs group-hover:text-accent/40 transition-colors duration-500">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    className="text-stone-dim/0 group-hover:text-accent/50 transition-all duration-500 translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0"
-                  >
-                    <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <h3 className="font-serif font-bold text-stone text-lg mb-2 group-hover:text-accent transition-colors duration-300">
-                  {s.name}
-                </h3>
-                <p className="font-sans text-stone-dim/60 text-sm leading-relaxed">
-                  {s.description}
-                </p>
-              </Link>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {otherServices.map((s) => {
+              const svcIndex = SERVICES.findIndex((svc) => svc.slug === s.slug);
+              const Icon = serviceIcons[svcIndex] || Trees;
+              return (
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}`}
+                  className="group bg-dark rounded-xl p-6 border border-black/[0.06] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-lg bg-accent/8 flex items-center justify-center group-hover:bg-accent/15 transition-colors">
+                      <Icon className="w-4 h-4 text-accent" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-serif text-stone text-lg group-hover:text-accent transition-colors duration-300">
+                      {s.name}
+                    </h3>
+                  </div>
+                  <p className="font-sans text-stone-dim/60 text-sm leading-relaxed">
+                    {s.description}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
-
     </main>
   );
 }
