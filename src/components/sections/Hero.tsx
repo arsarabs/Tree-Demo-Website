@@ -2,11 +2,58 @@
 
 import { usePersonalization } from "@/lib/personalization";
 
+const LEAF_COUNT = 12;
+const leaves = Array.from({ length: LEAF_COUNT }, (_, i) => ({
+  id: i,
+  left: `${5 + Math.random() * 90}%`,
+  delay: `${Math.random() * 8}s`,
+  duration: `${6 + Math.random() * 6}s`,
+  size: 10 + Math.random() * 8,
+  rotation: Math.floor(Math.random() * 360),
+  drift: Math.random() > 0.5 ? 1 : -1,
+}));
+
 export function Hero() {
   const biz = usePersonalization();
   return (
     <section className="relative overflow-hidden bg-dark">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-16 lg:pt-36 lg:pb-24">
+      {/* Falling leaves */}
+      <div className="absolute inset-0 pointer-events-none z-0" aria-hidden>
+        {leaves.map((leaf) => (
+          <div
+            key={leaf.id}
+            className="falling-leaf absolute -top-6"
+            style={{
+              left: leaf.left,
+              animationDelay: leaf.delay,
+              animationDuration: leaf.duration,
+              ["--drift" as string]: `${leaf.drift * (30 + Math.random() * 40)}px`,
+            }}
+          >
+            <svg
+              width={leaf.size}
+              height={leaf.size}
+              viewBox="0 0 24 24"
+              fill="none"
+              style={{ transform: `rotate(${leaf.rotation}deg)` }}
+            >
+              <path
+                d="M12 2C6.5 2 2 6.5 2 12c0 2.5 1 4.8 2.5 6.5C7 16 9.5 14 12 14s5 2 7.5 4.5C21 16.8 22 14.5 22 12c0-5.5-4.5-10-10-10z"
+                fill="currentColor"
+                className="text-accent/[0.08]"
+              />
+              <path
+                d="M12 2v12"
+                stroke="currentColor"
+                strokeWidth="0.5"
+                className="text-accent/[0.12]"
+              />
+            </svg>
+          </div>
+        ))}
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-16 lg:pt-36 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Image side */}
           <div className="relative order-2 lg:order-1">
