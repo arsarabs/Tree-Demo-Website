@@ -1,0 +1,173 @@
+You have access to the following skills: frontend-design, cro, react-performance, seo, simplify.
+
+Start by reading each skill file:
+- /skills/frontend-design/SKILL.md
+- /skills/cro/SKILL.md
+- /skills/react-performance/SKILL.md
+- /skills/seo/SKILL.md
+- /skills/simplify/SKILL.md
+
+This is a follow-up to a previous SEO optimization pass on a Next.js/Tailwind junk removal website (The Junk Moose, demo.launchedops.com). The homepage is already optimized. Now expand the site into a full multi-page architecture to dramatically increase organic keyword surface area and local SEO authority.
+
+Do NOT hardcode any API keys. Do NOT put any secrets in client-side code.
+
+---
+
+## GOAL
+Transform this single-page site into a multi-page Next.js app with dedicated routes for services, locations, and supporting pages. Each page gets its own metadata, schema, and keyword targeting.
+
+---
+
+## PAGE ARCHITECTURE TO BUILD
+
+### 1. Service Pages — `/services/[slug]`
+
+Create a dynamic route at `/app/services/[slug]/page.tsx`.
+
+Build individual pages for each service:
+- `/services/furniture-appliance-removal`
+- `/services/construction-debris-removal`
+- `/services/yard-waste-removal`
+- `/services/full-property-cleanouts`
+- `/services/commercial-junk-removal`
+- `/services/same-day-junk-removal`
+
+Each service page must include:
+- Unique `<title>` and `<meta description>` targeting that service + "Portland OR"
+- H1 with the service name + location (e.g. "Furniture & Appliance Removal in Portland OR")
+- 150-200 words of unique body copy describing the service, what's included, and why locals choose The Junk Moose
+- A relevant FAQ section (3-5 questions specific to that service) with FAQPage schema
+- Service schema (matching what was built in the SEO pass)
+- A sticky CTA ("Get a Free Quote") throughout
+- Breadcrumb nav: Home > Services > [Service Name] with BreadcrumbList schema
+- Link back to homepage and to the locations hub
+
+Build a `/services` index page at `/app/services/page.tsx` that:
+- Lists all 6 services as cards with links
+- Has its own title/meta: "Junk Removal Services Portland OR | The Junk Moose"
+- Includes a short intro paragraph
+
+---
+
+### 2. Location Pages — `/locations/[slug]`
+
+Create a dynamic route at `/app/locations/[slug]/page.tsx`.
+
+Build individual pages for each service city:
+- `/locations/portland`
+- `/locations/beaverton`
+- `/locations/gresham`
+- `/locations/lake-oswego`
+- `/locations/tigard`
+- `/locations/hillsboro`
+- `/locations/vancouver-wa`
+- `/locations/tualatin`
+- `/locations/milwaukie`
+- `/locations/oregon-city`
+
+Each location page must include:
+- Unique `<title>`: "[City] Junk Removal | Same-Day Service | The Junk Moose"
+- Unique `<meta description>` mentioning the city specifically
+- H1: "Junk Removal in [City]"
+- 150-200 words of unique body copy — mention the city by name at least 4 times naturally, reference local landmarks or neighborhoods where possible as placeholder text (mark with // TODO: localize)
+- LocalBusiness schema with areaServed scoped to that specific city
+- A 3-5 question FAQ specific to that location (response times, coverage area, etc.)
+- List of all services offered in that location (linking to service pages)
+- Breadcrumb: Home > Locations > [City] with schema
+- CTA form (can be a simplified version of the homepage form)
+
+Build a `/locations` index page at `/app/locations/page.tsx` that:
+- Lists all 10 cities as a grid of cards
+- Title/meta: "Junk Removal Near Me | Portland Metro Area | The Junk Moose"
+
+---
+
+### 3. Supporting Pages
+
+**`/about`**
+- Title: "About The Junk Moose | Portland's Local Junk Removal Crew"
+- Expand the homepage "Built by hand. Run with pride." section into a full page
+- Include: founder story, crew info, licensing/insurance, eco-friendly disposal practices
+- Add Person schema for Marcus (founder)
+- Add Organization schema
+
+**`/reviews`**
+- Title: "Customer Reviews | The Junk Moose Portland Junk Removal"
+- Pull in all testimonials from the homepage
+- Add a section for a Google Reviews embed placeholder (mark with // TODO: embed Google Reviews widget — requires Google Places API key in server-side API route only)
+- Add AggregateRating and individual Review schema for each testimonial
+- Add a QR code section: "Leave us a review" with a placeholder QR image and copy explaining it routes to Google Reviews
+
+**`/contact`**
+- Title: "Contact The Junk Moose | Free Junk Removal Quote Portland OR"
+- Full contact form (name, phone, email, service type, message)
+- NAP block with address tag
+- Embedded Google Maps placeholder (mark with // TODO: requires Maps API key in server-side route)
+- Business hours
+- ContactPoint schema
+
+---
+
+## NAVIGATION
+
+Update the site header to include:
+- Services (dropdown linking to all 6 service pages + /services index)
+- Locations (dropdown linking to all 10 city pages + /locations index)
+- About
+- Reviews
+- Contact
+- Keep existing CTA button ("Free Quote" → links to /contact)
+
+Update the footer to include:
+- Two columns: Services links + Location links
+- Legal row: © 2025 The Junk Moose · Privacy Policy (placeholder) · Terms (placeholder)
+
+---
+
+## INTERNAL LINKING STRATEGY
+
+- Homepage should link to all service pages and the locations hub
+- Every service page links to all location pages ("We offer [service] in [city], [city], and [city]")
+- Every location page links to all service pages
+- About, Reviews, Contact all link back to homepage and /contact
+- This creates a full internal link mesh — critical for passing PageRank across the site
+
+---
+
+## SITEMAP UPDATE
+
+Update `/app/sitemap.ts` to include all new routes:
+- /services and all 6 service slugs (priority: 0.9)
+- /locations and all 10 location slugs (priority: 0.8)
+- /about, /reviews, /contact (priority: 0.7)
+
+---
+
+## SHARED COMPONENTS TO BUILD
+
+Create reusable components in `/components/`:
+- `<ServiceCard />` — used on /services index and homepage
+- `<LocationCard />` — used on /locations index
+- `<QuoteForm />` — shared across homepage, /contact, and location pages
+- `<Breadcrumb />` — used on all inner pages, accepts array of {label, href}
+- `<PageHero />` — shared hero banner for inner pages (title, subtitle, CTA)
+- `<FAQAccordion />` — already exists on homepage, extract into reusable component
+
+---
+
+## SIMPLIFY PASS
+
+After all pages are built, use the simplify skill to:
+- Consolidate all schema-building into `/lib/schema.ts` with typed builder functions
+- Consolidate all page metadata generation into `/lib/metadata.ts`
+- Consolidate all static data (services list, locations list, FAQs) into `/lib/data.ts`
+- Remove any duplicate code across page files
+- Confirm zero hardcoded API keys anywhere
+
+---
+
+After completing all phases, output:
+1. Full file tree of every new file created
+2. Any // TODO items that require manual action or API keys
+3. Estimated total indexable pages added (should be 20+)
+4. Recommended order to submit URLs to Google Search Console
