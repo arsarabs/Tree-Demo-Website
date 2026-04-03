@@ -16,7 +16,7 @@ const leaves = Array.from({ length: LEAF_COUNT }, (_, i) => ({
 export function Hero() {
   const biz = usePersonalization();
   return (
-    <section className="relative overflow-hidden bg-dark">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#E8F4EE] to-dark">
       {/* Falling leaves */}
       <div className="absolute inset-0 pointer-events-none z-0" aria-hidden>
         {leaves.map((leaf) => (

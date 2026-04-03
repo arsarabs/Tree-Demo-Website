@@ -21,29 +21,29 @@ export function QuoteSection() {
   };
 
   return (
-    <SectionWrapper id="quote" reveal="up" className="bg-dark py-16 sm:py-20 lg:py-28 px-6 lg:px-10 relative overflow-hidden">
+    <SectionWrapper id="quote" reveal="up" className="bg-[#133D2E] py-16 sm:py-20 lg:py-28 px-6 lg:px-10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* ═══ HOOK ═══ */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <h2 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.88] tracking-[-0.03em] mb-8 text-stone">
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[0.88] tracking-[-0.03em] mb-8 text-white">
                 Ready?
               </h2>
-              <p className="font-sans text-stone-dim text-base leading-relaxed mb-10 max-w-sm">
-                Fill out the form or just call. We usually have same-day openings.
+              <p className="font-sans text-white/60 text-base leading-relaxed mb-10 max-w-sm">
+                Fill out the form or just call. We usually have same-week openings.
               </p>
             </div>
 
             <div>
               <a
                 href={`tel:${biz.phoneRaw}`}
-                className="block font-serif font-bold text-accent text-[clamp(2rem,7vw,4.5rem)] leading-none tracking-tight hover:text-accent-light transition-colors duration-500 mb-6"
+                className="block font-serif text-white text-[clamp(2rem,7vw,4.5rem)] leading-none tracking-tight hover:text-white/80 transition-colors duration-500 mb-6"
               >
                 {biz.phone}
               </a>
-              <div className="flex items-center gap-3 text-stone-dim/60">
-                <span className="w-2 h-2 rounded-full bg-emerald-500/60" />
+              <div className="flex items-center gap-3 text-white/40">
+                <span className="w-2 h-2 rounded-full bg-emerald-400/60" />
                 <p className="font-sans text-xs uppercase tracking-[0.1em]">
                   {BIZ.hours}
                 </p>
@@ -57,7 +57,7 @@ export function QuoteSection() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="bg-elevated border border-black/[0.10] rounded-2xl p-8 lg:p-12"
+                className="bg-white border border-black/[0.06] rounded-2xl p-8 lg:p-12"
               >
                 <div className="absolute -left-[9999px]" aria-hidden="true">
                   <label htmlFor="hp-website">Website</label>
@@ -139,17 +139,17 @@ export function QuoteSection() {
                 </p>
               </form>
             ) : (
-              <div className="bg-dark border border-accent/20 p-12 lg:p-16 text-center animate-fadeInUp">
-                <div className="w-16 h-16 border border-accent/30 flex items-center justify-center mx-auto mb-8">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A5C4B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <div className="bg-white/10 border border-white/20 rounded-2xl p-12 lg:p-16 text-center animate-fadeInUp">
+                <div className="w-16 h-16 rounded-xl border border-white/30 flex items-center justify-center mx-auto mb-8">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <h3 className="font-serif font-bold text-accent text-3xl mb-4">Quote Requested</h3>
-                <p className="font-sans text-stone-dim text-lg mb-8 max-w-sm mx-auto">
+                <h3 className="font-serif text-white text-3xl mb-4">Quote Requested</h3>
+                <p className="font-sans text-white/60 text-lg mb-8 max-w-sm mx-auto">
                   We&apos;ll be in touch within 15 minutes during business hours.
                 </p>
-                <a href={`tel:${biz.phoneRaw}`} className="font-sans text-accent/60 text-sm hover:text-accent transition-colors">
+                <a href={`tel:${biz.phoneRaw}`} className="font-sans text-white/50 text-sm hover:text-white transition-colors">
                   Can&apos;t wait? Call {biz.phone}
                 </a>
               </div>
