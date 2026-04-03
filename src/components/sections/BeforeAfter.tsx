@@ -112,7 +112,7 @@ function CompareSlider({ beforeSrc, afterSrc, alt, detail }: { beforeSrc: string
 
 export function BeforeAfter() {
   return (
-    <SectionWrapper id="work" reveal="up" className="bg-warm-gray py-14 sm:py-20 lg:py-24 px-6 lg:px-10">
+    <SectionWrapper id="work" reveal="clip" className="bg-dark py-14 sm:py-20 lg:py-24 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-end justify-between mb-10">

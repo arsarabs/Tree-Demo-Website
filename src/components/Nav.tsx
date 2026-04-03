@@ -145,7 +145,7 @@ export function Nav() {
             </a>
             <Link
               href="/contact"
-              className="rounded-lg bg-accent text-white font-sans font-bold text-[11px] uppercase tracking-[0.18em] px-6 py-2.5 hover:bg-accent-light transition-colors duration-300"
+              className="rounded-lg bg-ember text-white font-sans font-bold text-[11px] uppercase tracking-[0.18em] px-6 py-2.5 hover:bg-ember-light transition-colors duration-300"
             >
               Free Quote
             </Link>

@@ -57,7 +57,7 @@ export function Testimonials() {
   }, []);
 
   return (
-    <SectionWrapper reveal="up" className="bg-elevated py-20 sm:py-24 lg:py-32 px-6 lg:px-10">
+    <SectionWrapper reveal="scale" className="bg-warm-gray py-20 sm:py-24 lg:py-32 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-[-0.02em] text-stone">
@@ -81,7 +81,7 @@ export function Testimonials() {
               <div>
                 <div className="flex gap-0.5 mb-6">
                   {[...Array(5)].map((_, j) => (
-                    <svg key={j} width="14" height="14" viewBox="0 0 20 20" fill="#1A5C4B" aria-hidden="true">
+                    <svg key={j} width="14" height="14" viewBox="0 0 20 20" fill="#C47828" aria-hidden="true">
                       <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z" />
                     </svg>
                   ))}

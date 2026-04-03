@@ -9,16 +9,16 @@ export function Footer() {
   const biz = usePersonalization();
   const initials = biz.name.split(" ").filter(w => !["the","a","an"].includes(w.toLowerCase())).slice(0, 2).map(w => w[0]).join("").toUpperCase();
   return (
-    <footer className="bg-[#0F2F24] py-12 pb-24 lg:pb-12 px-6 lg:px-10">
+    <footer className="bg-grove py-12 pb-24 lg:pb-12 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-6 h-6 rounded-lg border border-white/20 flex items-center justify-center">
-                <span className="font-serif font-bold text-white/60 text-[8px]">{initials}</span>
+                <span className="font-serif font-bold text-white/50 text-[8px]">{initials}</span>
               </div>
-              <span className="font-serif font-bold text-white/40 text-sm tracking-tight">
+              <span className="font-serif font-bold text-white/35 text-sm tracking-tight">
                 {biz.name.toUpperCase()}
               </span>
             </div>
@@ -26,7 +26,7 @@ export function Footer() {
               {biz.city}&apos;s trusted tree service crew.
             </p>
             <address className="not-italic">
-              <p className="font-sans text-white/25 text-xs">
+              <p className="font-sans text-white/20 text-xs">
                 {biz.name}
               </p>
               <p className="font-sans text-white/35 text-xs leading-relaxed">
@@ -34,7 +34,7 @@ export function Footer() {
               </p>
               <a
                 href={`tel:${biz.phoneRaw}`}
-                className="font-sans text-white/50 text-xs hover:text-white/80 transition-colors"
+                className="font-sans text-white/50 text-xs hover:text-white/70 transition-colors"
               >
                 {biz.phone}
               </a>

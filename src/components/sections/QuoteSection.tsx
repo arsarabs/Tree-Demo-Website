@@ -21,7 +21,7 @@ export function QuoteSection() {
   };
 
   return (
-    <SectionWrapper id="quote" reveal="up" className="bg-[#133D2E] py-16 sm:py-20 lg:py-28 px-6 lg:px-10 relative overflow-hidden">
+    <SectionWrapper id="quote" reveal="up" className="bg-grove py-16 sm:py-20 lg:py-28 px-6 lg:px-10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* ═══ HOOK ═══ */}
@@ -129,7 +129,7 @@ export function QuoteSection() {
                 {/* ═══ CTA ═══ */}
                 <button
                   type="submit"
-                  className="w-full bg-accent rounded-lg px-8 py-5 text-sm font-bold uppercase tracking-[0.18em] text-white cursor-pointer hover:bg-accent-light transition-colors duration-300 font-sans min-h-[56px]"
+                  className="w-full bg-ember rounded-lg px-8 py-5 text-sm font-bold uppercase tracking-[0.18em] text-white cursor-pointer hover:bg-ember-light transition-colors duration-300 font-sans min-h-[56px]"
                 >
                   Get My Free Quote
                 </button>

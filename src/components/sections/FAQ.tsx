@@ -93,7 +93,7 @@ export function FAQ() {
     : faqs.filter((f) => f.category === selectedCategory);
 
   return (
-    <SectionWrapper id="faq" reveal="up" className="bg-warm-gray py-20 sm:py-24 lg:py-32 px-6 lg:px-10">
+    <SectionWrapper id="faq" reveal="blur" className="bg-dark py-20 sm:py-24 lg:py-32 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
           {/* ═══ HOOK ═══ */}

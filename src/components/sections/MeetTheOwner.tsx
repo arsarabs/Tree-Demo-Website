@@ -9,7 +9,7 @@ import { BIZ } from "@/config/biz";
 export function MeetTheOwner() {
   const biz = usePersonalization();
   return (
-    <SectionWrapper id="about" reveal="up" className="bg-warm-gray py-20 sm:py-24 lg:py-32 px-6 lg:px-10">
+    <SectionWrapper id="about" reveal="up" className="bg-elevated py-24 sm:py-28 lg:py-36 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* ═══ HOOK ═══ */}
@@ -37,8 +37,8 @@ export function MeetTheOwner() {
 
           {/* ═══ BODY ═══ */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <h2 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.88] tracking-[-0.03em] mb-10 text-stone">
-              One truck. One bet.
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-7xl leading-[0.88] tracking-[-0.03em] mb-10 text-stone">
+              One truck.<br /><span className="text-accent italic">One bet.</span>
             </h2>
 
             <div className="space-y-5 mb-10">

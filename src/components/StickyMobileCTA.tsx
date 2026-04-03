@@ -6,7 +6,7 @@ import { usePersonalization } from "@/lib/personalization";
 export function StickyMobileCTA() {
   const biz = usePersonalization();
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-[#0F2F24]/95 backdrop-blur-xl px-4 py-3 safe-bottom">
+    <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-grove/95 backdrop-blur-xl px-4 py-3 safe-bottom">
       <div className="flex items-center gap-3 max-w-lg mx-auto">
         <a
           href={`tel:${biz.phoneRaw}`}
@@ -19,7 +19,7 @@ export function StickyMobileCTA() {
         </a>
         <Link
           href="/contact"
-          className="flex-[1.4] flex items-center justify-center bg-white rounded-lg text-[#0F2F24] font-sans font-bold text-sm uppercase tracking-[0.12em] py-4 hover:bg-white/90 transition-colors duration-300 min-h-[52px]"
+          className="flex-[1.4] flex items-center justify-center bg-ember rounded-lg text-white font-sans font-bold text-sm uppercase tracking-[0.12em] py-4 hover:bg-ember-light transition-colors duration-300 min-h-[52px]"
         >
           Free Quote
         </Link>
