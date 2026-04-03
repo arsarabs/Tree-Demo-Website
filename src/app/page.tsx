@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { BIZ } from "@/config/biz";
 import { getMetaBiz } from "@/lib/metadata-helpers";
 import { Hero } from "@/components/sections/Hero";
-import { Stats } from "@/components/sections/Stats";
-import { Services } from "@/components/sections/Services";
-import { MeetTheOwner } from "@/components/sections/MeetTheOwner";
-import { BeforeAfter } from "@/components/sections/BeforeAfter";
-import { Process } from "@/components/sections/Process";
-import { TrustBadges } from "@/components/sections/TrustBadges";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { ServiceAreas } from "@/components/sections/ServiceAreas";
+import { Process } from "@/components/sections/Process";
+import { Services } from "@/components/sections/Services";
+import { BeforeAfter } from "@/components/sections/BeforeAfter";
+import { Stats } from "@/components/sections/Stats";
+import { CrewPhoto } from "@/components/sections/CrewPhoto";
+import { MeetTheOwner } from "@/components/sections/MeetTheOwner";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { QuoteSection } from "@/components/sections/QuoteSection";
 
@@ -39,14 +39,14 @@ export default function Home() {
   return (
     <main id="main-content">
       <Hero />
-      <Stats />
-      <Services />
-      <MeetTheOwner />
-      <BeforeAfter />
-      <Process />
-      <TrustBadges />
-      <Testimonials />
       <ServiceAreas />
+      <Process />
+      <Services />
+      <BeforeAfter />
+      <Stats />
+      <CrewPhoto />
+      <MeetTheOwner />
+      <Testimonials />
       <FAQ />
       <QuoteSection />
     </main>

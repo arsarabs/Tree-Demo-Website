@@ -10,7 +10,7 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   const allItems = [{ label: "Home", href: "/" }, ...items];
 
   return (
-    <nav aria-label="Breadcrumb" className="font-sans text-xs text-stone-dim/40 mb-8">
+    <nav aria-label="Breadcrumb" className="font-satoshi text-xs text-stone-dim/40 mb-8">
       <ol className="flex items-center gap-2 flex-wrap">
         {allItems.map((item, i) => (
           <li key={item.href} className="flex items-center gap-2">

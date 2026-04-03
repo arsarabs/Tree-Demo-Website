@@ -23,7 +23,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       {!submitted ? (
         <form
           onSubmit={handleSubmit}
-          className={`bg-dark border border-black/[0.06] rounded-2xl ${compact ? "p-6" : "p-8 lg:p-12"}`}
+          className={`bg-dark border border-black/[0.06] ${compact ? "p-6" : "p-8 lg:p-12"}`}
         >
           {/* Honeypot — hidden from real users, catches bots */}
           <div className="absolute -left-[9999px]" aria-hidden="true">
@@ -40,7 +40,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
             <div>
-              <label htmlFor="form-name" className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+              <label htmlFor="form-name" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                 Your Name
               </label>
               <input
@@ -54,7 +54,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
               />
             </div>
             <div>
-              <label htmlFor="form-phone" className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+              <label htmlFor="form-phone" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                 Phone Number
               </label>
               <input
@@ -72,7 +72,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
           {!compact && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
               <div>
-                <label htmlFor="form-email" className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+                <label htmlFor="form-email" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                   Email (Optional)
                 </label>
                 <input
@@ -85,7 +85,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
                 />
               </div>
               <div>
-                <label htmlFor="form-service" className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+                <label htmlFor="form-service" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                   Service Type
                 </label>
                 <select id="form-service" name="service" className="form-input" defaultValue="">
@@ -103,7 +103,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
           )}
 
           <div className={compact ? "mb-5" : "mb-6"}>
-            <label htmlFor="form-message" className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+            <label htmlFor="form-message" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
               Tell Us About Your Job
             </label>
             <textarea
@@ -124,7 +124,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
               ].map((badge) => (
                 <div key={badge.text} className="flex items-center gap-2">
                   <span className="text-accent text-xs">{badge.icon}</span>
-                  <span className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.1em]">
+                  <span className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.1em]">
                     {badge.text}
                   </span>
                 </div>
@@ -134,20 +134,20 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
 
           <button
             type="submit"
-            className="w-full bg-accent rounded-lg text-white font-sans font-bold text-sm uppercase tracking-[0.18em] py-4 hover:bg-accent-light transition-colors duration-300"
+            className="w-full bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.18em] py-4 hover:bg-accent-light transition-colors duration-300"
           >
             Get My Free Quote
           </button>
         </form>
       ) : (
         <div className="bg-dark border border-accent/20 p-12 text-center animate-fadeInUp">
-          <h3 className="font-serif font-bold text-accent text-2xl mb-4">Quote Requested</h3>
-          <p className="font-sans text-stone-dim text-base mb-6">
+          <h3 className="font-clash font-bold text-accent text-2xl mb-4">Quote Requested</h3>
+          <p className="font-satoshi text-stone-dim text-base mb-6">
             We&apos;ll be in touch within 15 minutes during business hours.
           </p>
           <a
             href={`tel:${biz.phoneRaw}`}
-            className="font-sans text-accent/60 text-sm hover:text-accent transition-colors"
+            className="font-satoshi text-accent/60 text-sm hover:text-accent transition-colors"
           >
             Can&apos;t wait? Call {biz.phone}
           </a>

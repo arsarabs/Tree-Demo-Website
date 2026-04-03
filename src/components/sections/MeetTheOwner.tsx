@@ -30,24 +30,24 @@ export function MeetTheOwner() {
               <div className="absolute inset-0 bg-gradient-to-t from-warm-gray via-transparent to-transparent" />
             </div>
             <div className="relative -mt-16 pl-6">
-              <p className="font-serif font-bold text-accent text-2xl">{biz.isDemo ? "The Owner" : BIZ.founder}</p>
-              <p className="font-sans text-stone-dim/70 text-sm">{biz.isDemo ? "Owner" : BIZ.founderTitle}, {biz.name}</p>
+              <p className="font-clash font-bold text-accent text-2xl">{biz.isDemo ? "The Owner" : BIZ.founder}</p>
+              <p className="font-satoshi text-stone-dim/70 text-sm">{biz.isDemo ? "Owner" : BIZ.founderTitle}, {biz.name}</p>
             </div>
           </div>
 
           {/* ═══ BODY ═══ */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <h2 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.88] tracking-[-0.03em] mb-10 text-stone">
+            <h2 className="font-clash font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.88] tracking-[-0.03em] mb-10 text-stone">
               One truck. One bet.
             </h2>
 
             <div className="space-y-5 mb-10">
-              <p className="font-sans text-stone-dim text-lg leading-[1.8]">
+              <p className="font-satoshi text-stone-dim text-lg leading-[1.8]">
                 {biz.isDemo ? "The owners" : "Derek and Rosa"} started {biz.name} in 2011 after a rough windstorm
                 ripped through the Ygnacio Valley corridor and left homeowners waiting weeks for help.
                 They bet on themselves — one truck, a used chipper, and a list of 40 neighbors Rosa had personally called.
               </p>
-              <p className="font-sans text-stone-dim/80 text-base leading-[1.8]">
+              <p className="font-satoshi text-stone-dim/80 text-base leading-[1.8]">
                 {BIZ.yearsInBusiness} years and {biz.jobsCompleted} jobs later, it&apos;s still {biz.isDemo ? "the owners" : "Derek"}
                 and {biz.isDemo ? "the" : "his"} crew doing every job. No subcontractors, no call center, no middleman.
               </p>
@@ -57,7 +57,7 @@ export function MeetTheOwner() {
               {["CA Licensed #1084732", "ISA Certified Arborist", "$2M Insured"].map((item) => (
                 <span
                   key={item}
-                  className="font-sans text-stone-dim/60 text-xs uppercase tracking-[0.12em] flex items-center gap-2"
+                  className="font-satoshi text-stone-dim/60 text-xs uppercase tracking-[0.12em] flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-accent/60" />
                   {item}
@@ -70,7 +70,7 @@ export function MeetTheOwner() {
               <FlowButton text="Get a Free Quote" href="#quote" />
               <Link
                 href="/about"
-                className="link-underline font-sans font-bold text-accent text-sm uppercase tracking-[0.15em] py-4 hover:text-accent-light transition-colors duration-300"
+                className="link-underline font-satoshi font-bold text-accent text-sm uppercase tracking-[0.15em] py-4 hover:text-accent-light transition-colors duration-300"
               >
                 Learn More About Us
               </Link>

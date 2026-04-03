@@ -97,13 +97,13 @@ export default function ReviewsClient() {
           {/* ── Aggregate Rating Summary ── */}
           <section className="mb-16 lg:mb-20 text-center">
             <div className="border border-black/[0.06] bg-warm-gray p-8 lg:p-12 inline-block w-full max-w-md mx-auto">
-              <p className="font-serif font-bold text-accent text-5xl sm:text-6xl mb-2">
+              <p className="font-clash font-bold text-accent text-5xl sm:text-6xl mb-2">
                 {biz.rating}
               </p>
               <div className="flex justify-center mb-3">
                 <Stars count={5} />
               </div>
-              <p className="font-sans text-stone-dim text-sm">
+              <p className="font-satoshi text-stone-dim text-sm">
                 Based on{" "}
                 <span className="text-stone font-medium">
                   {biz.reviewCount}+
@@ -115,10 +115,10 @@ export default function ReviewsClient() {
 
           {/* ── Intro / Commitment Section ── */}
           <section className="mb-16 lg:mb-20 max-w-3xl">
-            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
+            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
               Our Commitment to Every Customer
             </h2>
-            <div className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
+            <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
               <p>
                 At {biz.name}, customer satisfaction is not just a goal — it is the standard
                 we hold ourselves to on every single job. With over {biz.jobsCompleted} jobs
@@ -145,10 +145,10 @@ export default function ReviewsClient() {
 
           {/* ── Testimonials ── */}
           <section className="mb-20 lg:mb-28">
-            <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+            <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
               What Our Customers Say
             </p>
-            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-10">
+            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-10">
               Real Reviews From Real Jobs
             </h2>
 
@@ -159,14 +159,14 @@ export default function ReviewsClient() {
                   className="border border-black/[0.06] bg-warm-gray p-6 lg:p-8"
                 >
                   <Stars count={review.rating} />
-                  <p className="font-sans text-stone text-base leading-relaxed mt-4 mb-6">
+                  <p className="font-satoshi text-stone text-base leading-relaxed mt-4 mb-6">
                     &ldquo;{review.text}&rdquo;
                   </p>
                   <div className="border-t border-black/[0.06] pt-4">
-                    <p className="font-serif font-bold text-stone text-sm">
+                    <p className="font-clash font-bold text-stone text-sm">
                       {review.name}
                     </p>
-                    <p className="font-sans text-stone-dim/50 text-xs mt-0.5">
+                    <p className="font-satoshi text-stone-dim/50 text-xs mt-0.5">
                       {review.location} &middot; {review.service}
                     </p>
                   </div>
@@ -178,23 +178,23 @@ export default function ReviewsClient() {
           {/* ── Leave a Review ── */}
           <section className="mb-20 lg:mb-28">
             <div className="border border-accent/10 bg-warm-gray p-8 lg:p-12 text-center">
-              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
+              <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
                 Leave Us a Review
               </h2>
-              <p className="font-sans text-stone-dim text-base leading-relaxed max-w-lg mx-auto mb-6">
+              <p className="font-satoshi text-stone-dim text-base leading-relaxed max-w-lg mx-auto mb-6">
                 Had a great experience with {biz.name}? We&apos;d love to
                 hear about it. Your review helps other {biz.city} homeowners find
                 reliable tree service.
               </p>
               {/* // TODO: embed Google Reviews widget — requires Google Places API key in server-side API route only */}
-              <p className="font-sans text-stone-dim/40 text-sm">
+              <p className="font-satoshi text-stone-dim/40 text-sm">
                 Google Reviews widget coming soon
               </p>
             </div>
           </section>
 
           {/* ── Cross-links ── */}
-          <div className="mb-20 lg:mb-28 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm">
+          <div className="mb-20 lg:mb-28 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
             <Link href="/services" className="text-accent hover:text-accent-light transition-colors">
               View our services &rarr;
             </Link>
@@ -208,16 +208,16 @@ export default function ReviewsClient() {
 
           {/* ── CTA ── */}
           <section className="text-center">
-            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
+            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
               See Why {biz.city} Trusts {biz.name}
             </h2>
-            <p className="font-sans text-stone-dim text-base mb-8 max-w-xl mx-auto">
+            <p className="font-satoshi text-stone-dim text-base mb-8 max-w-xl mx-auto">
               {biz.jobsCompleted} jobs done. {biz.rating}-star rating.
               Get your free quote and see the difference.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
+              className="inline-block bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
             >
               Get a Free Quote
             </Link>

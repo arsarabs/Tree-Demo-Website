@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description: `${BIZ.city}'s top-rated crew. Same-day service, upfront pricing.`,
     images: [`${siteUrl}/our-junk-removal-team.jpg`],
   },
-  other: { "theme-color": "#1A5C4B" },
+  other: { "theme-color": "#1B6B3A" },
 };
 
 export default function RootLayout({
@@ -51,13 +51,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Self-hosted font preloads */}
-        <link rel="preload" href="/fonts/DMSerifDisplay-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <meta name="theme-color" content="#1A5C4B" />
+        <link rel="preload" href="/fonts/ClashDisplay-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <meta name="theme-color" content="#1B6B3A" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className="font-sans antialiased grain">
+      <body className="font-satoshi antialiased grain">
         <Suspense fallback={null}>
           <PersonalizationProvider>
             <DynamicHead />

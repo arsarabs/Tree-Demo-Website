@@ -18,14 +18,14 @@ export function CrewPhoto() {
       <div className="absolute inset-0 bg-black/50" />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
         {/* ═══ HOOK ═══ */}
-        <span className="font-sans text-xs font-medium tracking-widest uppercase mb-4 text-accent">
+        <span className="font-satoshi text-xs font-medium tracking-widest uppercase mb-4 text-accent">
           The Team
         </span>
-        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-none text-white">
+        <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold leading-none text-white">
           Our crew. Your trees.
         </h2>
         {/* ═══ BODY ═══ */}
-        <p className="font-sans mt-4 text-lg max-w-lg text-white/70">
+        <p className="font-satoshi mt-4 text-lg max-w-lg text-white/70">
           We never use subcontractors. The people on this page are the
           same people who show up at your property.
         </p>

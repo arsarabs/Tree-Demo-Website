@@ -1,142 +1,101 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { BIZ } from "@/config/biz";
 
-function CompareSlider({ beforeSrc, afterSrc, alt, detail }: { beforeSrc: string; afterSrc: string; alt: string; detail: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
-
-  const updatePosition = useCallback((clientX: number) => {
-    const container = containerRef.current;
-    if (!container) return;
-    const rect = container.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const pct = Math.max(5, Math.min(95, (x / rect.width) * 100));
-    setPosition(pct);
-  }, []);
-
-  const handleMouseDown = useCallback(() => setIsDragging(true), []);
-  const handleMouseUp = useCallback(() => setIsDragging(false), []);
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    updatePosition(e.clientX);
-  }, [isDragging, updatePosition]);
-
-  const handleTouchMove = useCallback((e: TouchEvent) => {
-    updatePosition(e.touches[0].clientX);
-  }, [updatePosition]);
-
-  useEffect(() => {
-    if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-        window.removeEventListener("mouseup", handleMouseUp);
-      };
-    }
-  }, [isDragging, handleMouseMove, handleMouseUp]);
+export function BeforeAfter() {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   return (
-    <div className="rounded-2xl overflow-hidden border border-black/[0.10]">
-      <div
-        ref={containerRef}
-        className="relative w-full h-[300px] sm:h-[400px] lg:h-[460px] cursor-col-resize select-none overflow-hidden"
-        onMouseDown={handleMouseDown}
-        onTouchMove={(e) => handleTouchMove(e.nativeEvent)}
-        onClick={(e) => updatePosition(e.clientX)}
-      >
-        {/* After image (full width, behind) */}
-        <Image
-          src={afterSrc}
-          alt={`After — ${alt}`}
-          fill
-          sizes="(max-width: 768px) 100vw, 70vw"
-          style={{ objectFit: "cover" }}
-          draggable={false}
-        />
+    <>
+      <SectionWrapper id="work" reveal="scale" className="bg-warm-gray py-14 sm:py-18 lg:py-24 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          {/* ═══ HOOK ═══ */}
+          <div className="flex items-end justify-between mb-10">
+            <h2 className="font-clash font-bold text-3xl sm:text-4xl leading-[0.9] tracking-tight text-stone">
+              Before. <span className="text-accent">After.</span>
+            </h2>
+            <span className="font-satoshi text-stone-dim/60 text-xs uppercase tracking-[0.15em] hidden sm:inline">
+              Tap to enlarge
+            </span>
+          </div>
 
-        {/* Before image (clipped) */}
-        <div
-          className="absolute inset-0"
-          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-        >
-          <Image
-            src={beforeSrc}
-            alt={`Before — ${alt}`}
-            fill
-            sizes="(max-width: 768px) 100vw, 70vw"
-            style={{ objectFit: "cover" }}
-            draggable={false}
-          />
-          {/* Dark tint on before side */}
-          <div className="absolute inset-0 bg-black/10" />
-        </div>
-
-        {/* Slider handle */}
-        <div
-          className="absolute top-0 bottom-0 z-10"
-          style={{ left: `${position}%`, transform: "translateX(-50%)" }}
-        >
-          <div className="w-0.5 h-full bg-white shadow-lg" />
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A5C4B" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M8 6l-4 6 4 6" />
-              <path d="M16 6l4 6-4 6" />
-            </svg>
+          {/* ═══ BODY ═══ */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
+            {BIZ.beforeAfter.map((photo, i) => (
+              <div
+                key={photo.src}
+                className={`overflow-hidden border border-black/[0.10] group hover:border-accent/20 transition-colors duration-500 cursor-pointer ${
+                  i === 0 ? "lg:col-span-7" : "lg:col-span-5"
+                }`}
+                onClick={() => setLightboxSrc(photo.src)}
+              >
+                <div className={`relative w-full overflow-hidden ${
+                  i === 0 ? "h-[300px] sm:h-[400px] lg:h-[460px]" : "h-[300px] sm:h-[400px] lg:h-[420px]"
+                }`}>
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes={i === 0 ? "(max-width: 768px) 100vw, 58vw" : "(max-width: 768px) 100vw, 42vw"}
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                    className="group-hover:scale-[1.02] transition-transform duration-700 ease-out-expo"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <div className="bg-black/70 backdrop-blur-sm px-3 py-1">
+                      <span className="font-satoshi text-[10px] font-medium tracking-widest uppercase text-white/70">Before</span>
+                    </div>
+                    <div className="bg-black/70 backdrop-blur-sm px-3 py-1">
+                      <span className="font-satoshi text-[10px] font-medium tracking-widest uppercase text-accent">After</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-dark/50 px-5 py-3">
+                  <p className="font-satoshi text-stone-dim/60 text-[11px] uppercase tracking-[0.15em]">
+                    {photo.detail}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </SectionWrapper>
 
-        {/* Labels */}
-        <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1 z-20">
-          <span className="font-sans text-[10px] font-medium tracking-widest uppercase text-white/80">Before</span>
-        </div>
-        <div className="absolute top-4 right-4 bg-accent/90 backdrop-blur-sm rounded-lg px-3 py-1 z-20">
-          <span className="font-sans text-[10px] font-medium tracking-widest uppercase text-white">After</span>
-        </div>
-      </div>
-
-      <div className="bg-warm-gray px-5 py-3">
-        <p className="font-sans text-stone-dim/60 text-[11px] uppercase tracking-[0.15em]">
-          {detail}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-export function BeforeAfter() {
-  return (
-    <SectionWrapper id="work" reveal="up" className="bg-warm-gray py-14 sm:py-20 lg:py-24 px-6 lg:px-10">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex items-end justify-between mb-10">
-          <h2 className="font-serif text-3xl sm:text-4xl leading-[0.95] tracking-[-0.02em] text-stone">
-            Before. <span className="text-accent italic">After.</span>
-          </h2>
-          <span className="font-sans text-stone-dim/60 text-xs uppercase tracking-[0.15em] hidden sm:inline">
-            Drag to compare
-          </span>
-        </div>
-
-        {/* Sliders */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {BIZ.beforeAfter.map((photo) => (
-            <CompareSlider
-              key={photo.src}
-              beforeSrc={photo.src}
-              afterSrc={photo.src}
-              alt={photo.alt}
-              detail={photo.detail}
+      {/* Fullscreen lightbox */}
+      {lightboxSrc && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 cursor-zoom-out animate-fadeIn"
+          onClick={() => setLightboxSrc(null)}
+        >
+          <button
+            onClick={() => setLightboxSrc(null)}
+            className="absolute top-6 right-6 z-10 text-white/60 hover:text-white transition-colors"
+            aria-label="Close"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-satoshi text-white/30 text-xs uppercase tracking-[0.15em]">
+            Tap anywhere to close
+          </p>
+          <div
+            className="max-w-[95vw] max-h-[90vh] overflow-auto hide-scrollbar cursor-default animate-zoomFadeIn"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={lightboxSrc}
+              alt="Before and after — full size"
+              className="w-auto h-auto max-w-none max-h-[85vh] object-contain"
             />
-          ))}
+          </div>
         </div>
-      </div>
-    </SectionWrapper>
+      )}
+    </>
   );
 }

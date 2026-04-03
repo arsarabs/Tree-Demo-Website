@@ -9,17 +9,17 @@ export default function PrivacyClient() {
   return (
     <div id="main-content" className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
       <div className="max-w-3xl mx-auto">
-        <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+        <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
           Legal
         </p>
-        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-stone tracking-tight mb-8">
+        <h1 className="font-clash font-bold text-3xl sm:text-4xl lg:text-5xl text-stone tracking-tight mb-8">
           Privacy Policy
         </h1>
-        <p className="font-sans text-stone-dim/50 text-sm mb-12">
+        <p className="font-satoshi text-stone-dim/50 text-sm mb-12">
           Last updated: March 16, 2026
         </p>
 
-        <div className="space-y-10 font-sans text-stone-dim text-base leading-relaxed">
+        <div className="space-y-10 font-satoshi text-stone-dim text-base leading-relaxed">
           {/* Intro */}
           <section>
             <p>
@@ -31,7 +31,7 @@ export default function PrivacyClient() {
 
           {/* Information We Collect */}
           <section>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Information We Collect
             </h2>
             <p className="mb-4">
@@ -49,7 +49,7 @@ export default function PrivacyClient() {
 
           {/* How We Use Your Information */}
           <section>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               How We Use Your Information
             </h2>
             <p className="mb-4">We use the information you provide solely to:</p>
@@ -63,7 +63,7 @@ export default function PrivacyClient() {
 
           {/* No Data Sales */}
           <section>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               We Never Sell Your Data
             </h2>
             <p>
@@ -76,7 +76,7 @@ export default function PrivacyClient() {
 
           {/* Cookies */}
           <section>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Cookies &amp; Analytics
             </h2>
             <p>
@@ -88,7 +88,7 @@ export default function PrivacyClient() {
 
           {/* Data Security */}
           <section>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Data Security
             </h2>
             <p>
@@ -100,7 +100,7 @@ export default function PrivacyClient() {
 
           {/* Your Rights */}
           <section>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Your Rights
             </h2>
             <p>
@@ -112,7 +112,7 @@ export default function PrivacyClient() {
 
           {/* Contact */}
           <section>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
+            <h2 className="font-clash font-bold text-xl sm:text-2xl text-stone tracking-tight mb-4">
               Questions?
             </h2>
             <p className="mb-4">

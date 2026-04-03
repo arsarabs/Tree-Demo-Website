@@ -33,8 +33,8 @@ export const BIZ = {
   jobsCompleted: "2,800+",
 
   // ─── Brand ───
-  accent: "#1A5C4B",
-  accentLight: "#227A63",
+  accent: "#1B6B3A",
+  accentLight: "#25884A",
 
   // ─── Service Areas (marquee) ───
   serviceAreas: [

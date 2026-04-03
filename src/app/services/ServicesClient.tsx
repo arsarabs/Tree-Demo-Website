@@ -69,10 +69,10 @@ export default function ServicesClient() {
         <section className="bg-dark px-6 lg:px-10 py-16 lg:py-20 border-b border-black/[0.06]">
           <div className="max-w-4xl mx-auto">
             <Breadcrumb items={breadcrumbItems} />
-            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
+            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
               {biz.city}&rsquo;s Full-Service Tree Care Team
             </h2>
-            <div className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
+            <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
               <p>
                 {biz.name} provides professional tree care across {biz.city}, {biz.state}
                 {" "}and all of Contra Costa County. Whether you need a single dead limb removed
@@ -99,7 +99,7 @@ export default function ServicesClient() {
                 </Link>.
               </p>
             </div>
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm">
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
               <Link href="/reviews" className="text-accent hover:text-accent-light transition-colors">
                 See what our customers say &rarr;
               </Link>
@@ -146,13 +146,13 @@ export default function ServicesClient() {
         {/* Bottom CTA */}
         <section className="bg-dark px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+            <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
               Ready to get started?
             </p>
-            <h2 className="font-serif font-bold text-stone text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
+            <h2 className="font-clash font-bold text-stone text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
               Get Your Free Quote Today
             </h2>
-            <p className="font-sans text-stone-dim text-lg leading-relaxed mb-10">
+            <p className="font-satoshi text-stone-dim text-lg leading-relaxed mb-10">
               Call us at{" "}
               <a
                 href={`tel:${biz.phoneRaw}`}
@@ -164,7 +164,7 @@ export default function ServicesClient() {
             </p>
             <a
               href="/contact"
-              className="inline-block bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
+              className="inline-block bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
             >
               Get a Free Quote
             </a>

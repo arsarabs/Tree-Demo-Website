@@ -18,7 +18,7 @@ export function ServiceAreas() {
           {areas.map((area) => (
             <span
               key={area}
-              className="font-sans font-medium text-stone-dim/60 uppercase tracking-[0.3em] text-[10px] flex items-center gap-10 whitespace-nowrap"
+              className="font-satoshi font-medium text-stone-dim/60 uppercase tracking-[0.3em] text-[10px] flex items-center gap-10 whitespace-nowrap"
             >
               {area}
               <span className="text-accent/30 text-[5px]">●</span>

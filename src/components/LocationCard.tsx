@@ -16,10 +16,10 @@ export function LocationCard({
     >
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="font-serif font-bold text-stone text-lg group-hover:text-accent transition-colors duration-300">
+          <h3 className="font-clash font-bold text-stone text-lg group-hover:text-accent transition-colors duration-300">
             {city}
           </h3>
-          <p className="font-sans text-stone-dim/40 text-xs uppercase tracking-[0.15em] mt-1">
+          <p className="font-satoshi text-stone-dim/40 text-xs uppercase tracking-[0.15em] mt-1">
             {state}
           </p>
         </div>

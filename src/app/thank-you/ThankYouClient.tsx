@@ -14,21 +14,21 @@ export default function ThankYouClient() {
           <span className="text-accent text-2xl font-bold">&#10003;</span>
         </div>
 
-        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-stone tracking-tight mb-6">
+        <h1 className="font-clash font-bold text-3xl sm:text-4xl lg:text-5xl text-stone tracking-tight mb-6">
           We Got Your Request!
         </h1>
 
-        <p className="font-sans text-stone-dim text-lg sm:text-xl leading-relaxed mb-4">
+        <p className="font-satoshi text-stone-dim text-lg sm:text-xl leading-relaxed mb-4">
           We&apos;ll call you back within 15 minutes during business hours.
         </p>
 
-        <p className="font-sans text-stone-dim/60 text-base mb-10">
+        <p className="font-satoshi text-stone-dim/60 text-base mb-10">
           Need to talk to someone right now? Give us a ring:
         </p>
 
         <a
           href={`tel:${biz.phoneRaw}`}
-          className="inline-block bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300 mb-6"
+          className="inline-block bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300 mb-6"
         >
           Call {biz.phone}
         </a>
@@ -36,7 +36,7 @@ export default function ThankYouClient() {
         <div className="mt-10">
           <Link
             href="/"
-            className="text-accent hover:text-accent-light transition-colors font-sans text-sm"
+            className="text-accent hover:text-accent-light transition-colors font-satoshi text-sm"
           >
             &larr; Back to Home
           </Link>

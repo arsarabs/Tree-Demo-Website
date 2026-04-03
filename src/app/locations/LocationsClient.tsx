@@ -33,7 +33,7 @@ export default function LocationsClient() {
         <div className="max-w-7xl mx-auto">
           <Breadcrumb items={breadcrumbItems} />
 
-          <div className="font-sans text-stone-dim text-base sm:text-lg leading-relaxed max-w-4xl mb-14 space-y-4">
+          <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed max-w-4xl mb-14 space-y-4">
             <p>
               {biz.name} provides professional tree service across the greater {biz.city}
               {" "}metropolitan area with the same fast, reliable service and
@@ -61,7 +61,7 @@ export default function LocationsClient() {
             </p>
           </div>
 
-          <div className="mb-14 flex flex-wrap gap-x-6 gap-y-2 font-sans text-sm">
+          <div className="mb-14 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
             <Link href="/services" className="text-accent hover:text-accent-light transition-colors">
               View our full list of services &rarr;
             </Link>
@@ -73,7 +73,7 @@ export default function LocationsClient() {
           {biz.isDemo ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {[`Downtown ${biz.city}`, `North ${biz.city}`, `South ${biz.city}`, `East ${biz.city}`, `West ${biz.city}`, `Greater ${biz.city}`, `${biz.city} Metro`, `${biz.city} Suburbs`].map((area) => (
-                <div key={area} className="bg-warm-gray border border-black/[0.06] px-5 py-4 font-sans text-stone-dim text-sm">
+                <div key={area} className="bg-warm-gray border border-black/[0.06] px-5 py-4 font-satoshi text-stone-dim text-sm">
                   {area}
                 </div>
               ))}
@@ -96,13 +96,13 @@ export default function LocationsClient() {
       {/* Bottom CTA */}
       <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-sans text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+          <p className="font-satoshi text-accent/60 uppercase tracking-[0.25em] text-[11px] mb-4">
             Serving the entire metro area
           </p>
-          <h2 className="font-serif font-bold text-stone text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
+          <h2 className="font-clash font-bold text-stone text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
             Don&rsquo;t See Your City?
           </h2>
-          <p className="font-sans text-stone-dim text-lg leading-relaxed mb-10">
+          <p className="font-satoshi text-stone-dim text-lg leading-relaxed mb-10">
             We likely serve your area too. Give us a call at{" "}
             <a
               href={`tel:${biz.phoneRaw}`}
@@ -114,7 +114,7 @@ export default function LocationsClient() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-accent text-white font-sans font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
+            className="inline-block bg-accent text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-accent-light transition-colors duration-300"
           >
             Contact Us for a Free Quote
           </Link>
