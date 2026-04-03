@@ -4,14 +4,12 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { SERVICES, LOCATIONS } from "@/lib/data";
 import { usePersonalization } from "@/lib/personalization";
-import { cn } from "@/lib/utils";
 
 export function Nav() {
   const biz = usePersonalization();
   const initials = biz.name.split(" ").filter(w => !["the","a","an"].includes(w.toLowerCase())).slice(0, 2).map(w => w[0]).join("").toUpperCase();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>();
 
   const handleMouseEnter = (id: string) => {
@@ -24,10 +22,7 @@ export function Nav() {
   };
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     };
   }, []);
@@ -41,151 +36,128 @@ export function Nav() {
         Skip to main content
       </a>
       <header>
-      <nav className="fixed z-50 w-full px-2 top-0">
-        <div className={cn(
-          "mx-auto mt-2 px-6 lg:px-10 transition-all duration-300",
-          isScrolled
-            ? "max-w-4xl bg-white/80 backdrop-blur-lg rounded-2xl border border-black/[0.06] shadow-lg lg:px-5 py-3"
-            : "max-w-7xl py-4"
-        )}>
-          <div className="flex items-center justify-between">
-            {/* Brand */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-8 h-8 rounded-lg border border-accent/30 flex items-center justify-center group-hover:border-accent/60 transition-colors duration-500">
-                <span className="font-serif font-bold text-accent text-xs">{initials}</span>
-              </div>
-              <span className={cn(
-                "font-serif font-bold text-sm text-stone tracking-tight hidden sm:block transition-opacity duration-300",
-                isScrolled && "lg:hidden"
-              )}>
-                {biz.name.toUpperCase()}
-              </span>
-            </Link>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-black/[0.06]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+          {/* Brand */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 rounded-lg border border-accent/30 flex items-center justify-center group-hover:border-accent/60 transition-colors duration-500">
+              <span className="font-serif font-bold text-accent text-xs">{initials}</span>
+            </div>
+            <span className="font-serif font-bold text-sm text-stone tracking-tight hidden sm:block">
+              {biz.name.toUpperCase()}
+            </span>
+          </Link>
 
-            {/* Desktop center links */}
-            <div className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+          {/* Desktop links */}
+          <div className="hidden lg:flex items-center gap-8">
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter("services")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Link
+                href="/services"
+                className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300 flex items-center gap-1"
+              >
+                Services
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+              <div
+                className={`absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-black/[0.06] rounded-xl shadow-2xl transition-all duration-200 ${activeDropdown === "services" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+              >
+                <div className="py-2">
+                  <Link href="/services" className="block px-5 py-2.5 font-sans text-accent/70 text-xs uppercase tracking-[0.15em] hover:text-accent transition-colors">
+                    All Services
+                  </Link>
+                  <div className="h-px bg-black/[0.04] mx-4" />
+                  {SERVICES.map((s) => (
+                    <Link
+                      key={s.slug}
+                      href={`/services/${s.slug}`}
+                      className="block px-5 py-2.5 font-sans text-stone-dim text-sm hover:text-accent hover:bg-black/[0.02] rounded-lg transition-colors duration-200"
+                    >
+                      {s.shortName}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {biz.isDemo ? (
+              <Link href="/locations" className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300">
+                Service Area
+              </Link>
+            ) : (
               <div
                 className="relative"
-                onMouseEnter={() => handleMouseEnter("services")}
+                onMouseEnter={() => handleMouseEnter("locations")}
                 onMouseLeave={handleMouseLeave}
               >
                 <Link
-                  href="/services"
+                  href="/locations"
                   className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300 flex items-center gap-1"
                 >
-                  Services
+                  Locations
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </Link>
                 <div
-                  className={`absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-black/[0.06] rounded-xl shadow-2xl transition-all duration-200 ${activeDropdown === "services" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+                  className={`absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl border border-black/[0.06] rounded-xl shadow-2xl transition-all duration-200 ${activeDropdown === "locations" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
                 >
                   <div className="py-2">
-                    <Link
-                      href="/services"
-                      className="block px-5 py-2.5 font-sans text-accent/70 text-xs uppercase tracking-[0.15em] hover:text-accent transition-colors"
-                    >
-                      All Services
+                    <Link href="/locations" className="block px-5 py-2.5 font-sans text-accent/70 text-xs uppercase tracking-[0.15em] hover:text-accent transition-colors">
+                      All Locations
                     </Link>
                     <div className="h-px bg-black/[0.04] mx-4" />
-                    {SERVICES.map((s) => (
+                    {LOCATIONS.map((l) => (
                       <Link
-                        key={s.slug}
-                        href={`/services/${s.slug}`}
+                        key={l.slug}
+                        href={`/locations/${l.slug}`}
                         className="block px-5 py-2.5 font-sans text-stone-dim text-sm hover:text-accent hover:bg-black/[0.02] rounded-lg transition-colors duration-200"
                       >
-                        {s.shortName}
+                        {l.city}, {l.state}
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
+            )}
 
-              {biz.isDemo ? (
-                <Link
-                  href="/locations"
-                  className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300"
-                >
-                  Service Area
-                </Link>
-              ) : (
-                <div
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter("locations")}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Link
-                    href="/locations"
-                    className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300 flex items-center gap-1"
-                  >
-                    Locations
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
-                  <div
-                    className={`absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl border border-black/[0.06] rounded-xl shadow-2xl transition-all duration-200 ${activeDropdown === "locations" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
-                  >
-                    <div className="py-2">
-                      <Link
-                        href="/locations"
-                        className="block px-5 py-2.5 font-sans text-accent/70 text-xs uppercase tracking-[0.15em] hover:text-accent transition-colors"
-                      >
-                        All Locations
-                      </Link>
-                      <div className="h-px bg-black/[0.04] mx-4" />
-                      {LOCATIONS.map((l) => (
-                        <Link
-                          key={l.slug}
-                          href={`/locations/${l.slug}`}
-                          className="block px-5 py-2.5 font-sans text-stone-dim text-sm hover:text-accent hover:bg-black/[0.02] rounded-lg transition-colors duration-200"
-                        >
-                          {l.city}, {l.state}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+            <Link href="/about" className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300">
+              About
+            </Link>
+            <Link href="/reviews" className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300">
+              Reviews
+            </Link>
+          </div>
 
-              <Link href="/about" className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300">
-                About
-              </Link>
-              <Link href="/reviews" className="font-sans text-stone-dim text-[13px] hover:text-accent transition-colors duration-300">
-                Reviews
-              </Link>
-            </div>
-
-            {/* Right side */}
-            <div className="flex items-center gap-5">
-              <a
-                href={`tel:${biz.phoneRaw}`}
-                className={cn(
-                  "hidden md:flex items-center gap-2 text-stone-dim font-sans font-medium text-[13px] tracking-wide hover:text-accent transition-all duration-300",
-                  isScrolled && "lg:hidden"
-                )}
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                {biz.phone}
-              </a>
-              <Link
-                href="/contact"
-                className="rounded-lg bg-accent text-white font-sans font-bold text-[11px] uppercase tracking-[0.18em] px-6 py-2.5 hover:bg-accent-light transition-colors duration-300"
-              >
-                Free Quote
-              </Link>
-              {/* Mobile hamburger */}
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden flex flex-col gap-1.5 p-1"
-                aria-label="Menu"
-              >
-                <span className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
-                <span className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
-                <span className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
-              </button>
-            </div>
+          {/* Right side */}
+          <div className="flex items-center gap-5">
+            <a
+              href={`tel:${biz.phoneRaw}`}
+              className="hidden md:flex items-center gap-2 text-stone-dim font-sans font-medium text-[13px] tracking-wide hover:text-accent transition-colors duration-300"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              {biz.phone}
+            </a>
+            <Link
+              href="/contact"
+              className="rounded-lg bg-accent text-white font-sans font-bold text-[11px] uppercase tracking-[0.18em] px-6 py-2.5 hover:bg-accent-light transition-colors duration-300"
+            >
+              Free Quote
+            </Link>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden flex flex-col gap-1.5 p-1"
+              aria-label="Menu"
+            >
+              <span className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
+              <span className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`} />
+              <span className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
+            </button>
           </div>
         </div>
       </nav>
