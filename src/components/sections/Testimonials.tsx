@@ -34,12 +34,11 @@ export function Testimonials() {
   const scrollToIndex = useCallback((index: number) => {
     const container = scrollRef.current;
     if (!container) return;
-    const cards = container.children;
-    if (cards[index]) {
-      (cards[index] as HTMLElement).scrollIntoView({
+    const card = container.children[index] as HTMLElement | undefined;
+    if (card) {
+      container.scrollTo({
+        left: card.offsetLeft - container.offsetLeft,
         behavior: "smooth",
-        block: "nearest",
-        inline: "start",
       });
       setActiveIndex(index);
     }
