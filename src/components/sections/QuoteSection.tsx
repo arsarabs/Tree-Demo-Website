@@ -57,7 +57,7 @@ export function QuoteSection() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="bg-white border border-black/[0.06] rounded-2xl p-8 lg:p-12"
+                className="bg-white border border-black/[0.06] rounded-2xl p-5 sm:p-8 lg:p-12"
               >
                 <div className="absolute -left-[9999px]" aria-hidden="true">
                   <label htmlFor="hp-website">Website</label>

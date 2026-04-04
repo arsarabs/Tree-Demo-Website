@@ -23,12 +23,12 @@ export function Hero() {
                 alt="Highland Tree Service crew at work in Walnut Creek CA"
                 width={1200}
                 height={800}
-                className="w-full h-[400px] lg:h-[560px] object-cover"
+                className="w-full h-[300px] sm:h-[400px] lg:h-[560px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-grove/40 to-transparent" />
             </div>
             {/* Floating stat card */}
-            <div className="absolute -bottom-4 -right-2 sm:right-6 bg-white rounded-xl p-4 shadow-2xl shadow-black/20 animate-fadeInUp" style={{ animationDelay: "0.6s" }}>
+            <div className="absolute -bottom-4 right-2 sm:right-6 bg-white rounded-xl p-3 sm:p-4 shadow-2xl shadow-black/20 animate-fadeInUp" style={{ animationDelay: "0.6s" }}>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="#1A5C4B" aria-hidden="true">
@@ -61,7 +61,7 @@ export function Hero() {
 
             {/* Headline */}
             <h1
-              className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[0.92] tracking-[-0.03em] mb-6 animate-fadeInUp"
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[0.92] tracking-[-0.03em] mb-6 animate-fadeInUp"
               style={{ animationDelay: "0.2s" }}
             >
               <span className="text-white/90">{biz.city}&apos;s</span>
@@ -101,7 +101,7 @@ export function Hero() {
 
             {/* Trust row */}
             <div
-              className="flex flex-wrap gap-6 mt-10 pt-8 border-t border-white/10 animate-fadeInUp"
+              className="flex flex-wrap gap-x-6 gap-y-3 mt-8 pt-6 border-t border-white/10 animate-fadeInUp"
               style={{ animationDelay: "0.5s" }}
             >
               {["ISA Certified", "Licensed & Insured", "$2M Coverage"].map((item) => (

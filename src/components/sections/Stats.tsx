@@ -15,7 +15,7 @@ export function Stats() {
             <p className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.25em] mb-4">
               Jobs Completed
             </p>
-            <div className="font-serif text-stone text-[4.5rem] sm:text-[8rem] lg:text-[12rem] leading-[0.8] tracking-tight whitespace-nowrap">
+            <div className="font-serif text-stone text-[3.5rem] sm:text-[6rem] lg:text-[12rem] leading-[0.8] tracking-tight whitespace-nowrap">
               <NumberTicker value={2800} /><span className="text-stone/20">+</span>
             </div>
           </div>
@@ -24,7 +24,7 @@ export function Stats() {
             <p className="font-sans text-stone-dim/50 text-[11px] uppercase tracking-[0.25em] mb-4">
               Google Rating
             </p>
-            <div className="font-serif text-stone text-[3.5rem] sm:text-[6rem] lg:text-[8rem] leading-[0.8] tracking-tight">
+            <div className="font-serif text-stone text-[3rem] sm:text-[5rem] lg:text-[8rem] leading-[0.8] tracking-tight">
               <NumberTicker value={4.9} decimalPlaces={1} delay={0.2} />
             </div>
             <div className="flex gap-1 mt-4">
